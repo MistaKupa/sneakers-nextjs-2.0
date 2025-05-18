@@ -27,7 +27,7 @@ export default function PaymentForm({ totalPrice }) {
 
     if (!stripe || !elements) {
       setIsLoading(false);
-      console.log("I am at first IF");
+
       return;
     }
 
@@ -35,7 +35,7 @@ export default function PaymentForm({ totalPrice }) {
     if (submitError) {
       setErrorMessage(submitError.message);
       setIsLoading(false);
-      console.log("I am at second IF");
+
       return;
     }
 
@@ -77,11 +77,10 @@ export default function PaymentForm({ totalPrice }) {
     if (data?.error) {
       setErrorMessage(data.error);
       setIsLoading(false);
-      console.log(" I AM AT THIRD IF");
+
       return;
     }
     if (data?.success) {
-      console.log(" I AM AT FOURTH IF");
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         clientSecret: data.clientSecretID,
@@ -133,7 +132,7 @@ export default function PaymentForm({ totalPrice }) {
         if (data?.success) {
           setIsLoading(false);
           setCheckoutProgress("order-confirmed");
-          console.log("ORDER SAVED IN SUPABASE");
+
           setCart([]);
         }
       }
