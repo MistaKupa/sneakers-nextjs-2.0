@@ -7,15 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUpUser } from "../_lib/account-service";
 
-// import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
-
-import dynamic from "next/dynamic";
-
-// Load VerifyAccount without SSR
-const VerifyAccount = dynamic(
-  () => import("../_components/verifyAccount/VerifyAccount"),
-  { ssr: false }
-);
+import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
 
 export default function SignUp() {
   const {

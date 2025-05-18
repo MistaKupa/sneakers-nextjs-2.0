@@ -2,9 +2,10 @@
 
 import orderConfirmed from "@/public/order-confirmed-guy.json";
 import { motion } from "framer-motion";
-import Lottie from "lottie-react";
+
 import Link from "next/link";
 
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 export default function OrderConfirmed() {
   return (
     <div className="flex flex-col items-center gap-10 lg:my-10">

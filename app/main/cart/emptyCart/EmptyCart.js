@@ -1,6 +1,6 @@
-import Lottie from "lottie-react";
 import empty from "@/public/empty-cart";
 
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 export default function EmptyCart() {
   return (
     <div className="flex flex-col items-center justify-center my-10">

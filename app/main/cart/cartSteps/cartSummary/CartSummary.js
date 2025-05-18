@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import CartDiscountInput from "./CartDiscountInput";
+import { useCart } from "@/app/_context/CartContext";
 import CartHeader from "./CartHeader";
 import CartProductCard from "./CartProductCard";
-import { useCart } from "@/app/_context/CartContext";
 import CartProductCardMobile from "./CartProductCardMobile";
 
 export default function CartSummary() {
