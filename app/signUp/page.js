@@ -7,7 +7,15 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUpUser } from "../_lib/account-service";
 
-import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
+// import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
+
+import dynamic from "next/dynamic";
+
+// Load VerifyAccount without SSR
+const VerifyAccount = dynamic(
+  () => import("../_components/verifyAccount/VerifyAccount"),
+  { ssr: false }
+);
 
 export default function SignUp() {
   const {
@@ -23,9 +31,9 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
 
   const onSubmit = async (data) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("displayName", data.displayName);
-    }
+    // if (typeof window !== "undefined") {
+    //   localStorage.setItem("displayName", data.displayName);
+    // }
 
     const result = await signUpUser(data);
 
@@ -87,7 +95,7 @@ export default function SignUp() {
           className="bg-dark-100  w-7/8 md:w-[33rem] md:h-[40rem] flex flex-col justify-between shadow-xl drop-shadow-2xl rounded-lg pt-14 px-1 pb-1"
         >
           {verify ? (
-            <VerifyAccount />
+            <VerifyAccount email={email} />
           ) : (
             <>
               <div className="flex flex-col gap-8 px-14">

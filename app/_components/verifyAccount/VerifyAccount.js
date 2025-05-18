@@ -1,9 +1,11 @@
+"use client";
+
 import Lottie from "lottie-react";
 import emailVerify from "@/public/email-verify.json";
 import { IoArrowForward } from "react-icons/io5";
 import Link from "next/link";
 
-function VerifyAccount() {
+function VerifyAccount({ email }) {
   return (
     <div className="flex flex-col items-center justify-center gap-5">
       <div className="text-center">
