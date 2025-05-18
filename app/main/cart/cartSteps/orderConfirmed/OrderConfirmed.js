@@ -2,6 +2,7 @@
 
 import orderConfirmed from "@/public/order-confirmed-guy.json";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 
 import Link from "next/link";
 
