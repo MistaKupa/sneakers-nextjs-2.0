@@ -1,8 +1,8 @@
-import { createClient } from "@/utils/supabase/server";
+import { createServerClientInstance } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function POST(request) {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   try {
     const res = await request.json();

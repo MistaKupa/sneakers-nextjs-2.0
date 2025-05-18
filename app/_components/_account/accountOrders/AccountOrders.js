@@ -1,8 +1,7 @@
 import { getUserOrders } from "@/app/_lib/data-service";
-import { useUserProfile } from "@/hooks/useUSerProfile";
+import React from "react";
 import OrderCard from "./OrderCard";
 import OrderCardMobile from "./OrderCardMobile";
-import React from "react";
 
 export default async function AccountOrders({ searchParams }) {
   const sParams = await searchParams;

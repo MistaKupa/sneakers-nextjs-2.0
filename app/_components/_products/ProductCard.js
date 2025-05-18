@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PriceDetails from "./PriceDetails";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 function ProductCard({ product }) {
   const discountedPrice = product.price * (product.discount / 100);

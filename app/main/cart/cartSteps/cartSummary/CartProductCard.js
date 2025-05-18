@@ -35,7 +35,7 @@ export default function CartProductCard() {
                 </Link>
               </div>
 
-              <div>
+              <div className="min-w-52">
                 <span className="text-xs text-dark-300">SNEAKERS COMPANY</span>
                 <Link href={`/product/${product.id}`}>
                   <h5 className="text-dark-500 font-semibold hover:text-newPrimary duration-300 text-sm xl:text-base">
@@ -44,7 +44,7 @@ export default function CartProductCard() {
                 </Link>
               </div>
 
-              <div className="text-dark-400 text-xs xl:text-sm">
+              <div className="flex justify-end text-dark-400 text-xs xl:text-sm ">
                 Size: {product.selectedSize}
               </div>
             </div>

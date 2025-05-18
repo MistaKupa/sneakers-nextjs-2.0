@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { IoEllipseSharp, IoEllipsisHorizontalSharp } from "react-icons/io5";
 import { format } from "date-fns";
+import Link from "next/link";
+import { IoEllipseSharp } from "react-icons/io5";
 
 const statusColorMap = {
   new: "text-green-500",

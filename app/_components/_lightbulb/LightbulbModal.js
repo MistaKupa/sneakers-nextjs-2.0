@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { IoChevronBack, IoChevronForward, IoCloseSharp } from "react-icons/io5";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
+
 import { useEffect, useRef } from "react";
 
 function LightbulbModal({

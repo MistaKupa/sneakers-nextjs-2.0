@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import Lottie from "lottie-react";
-import { motion } from "motion/react";
 import orderConfirmed from "@/public/order-confirmed-guy.json";
-import { useCart } from "@/app/_context/CartContext";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import Link from "next/link";
 
 export default function OrderConfirmed() {
   return (

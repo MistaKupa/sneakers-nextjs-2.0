@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { login, loginWithGoogle } from "./actions";
 
@@ -137,10 +137,10 @@ export default function Login() {
                 Sign in
               </motion.button>
             </form>
-            {/* <motion.button
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 1 }}
-              onClick={() => signIn("google")}
+              onClick={() => loginWithGoogle()}
               className="w-full bg-newPrimary text-newWhite h-10 rounded-md flex items-center justify-center gap-2"
             >
               Sign in with Google
@@ -150,7 +150,7 @@ export default function Login() {
                 width={25}
                 height={25}
               />
-            </motion.button> */}
+            </motion.button>
           </div>
 
           <div className="w-full h-14 rounded-b-lg flex items-center justify-center gap-1 bg-dark-200 text-sm">

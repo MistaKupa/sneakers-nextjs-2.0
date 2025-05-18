@@ -7,6 +7,7 @@ const CartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [checkoutProgress, setCheckoutProgress] = useState("");
+  const [isCartReady, setIsCartReady] = useState(false);
 
   // Load cart from localStorage on first load
   useEffect(() => {
@@ -19,6 +20,8 @@ function CartProvider({ children }) {
         localStorage.removeItem("cart");
       }
     }
+    setIsCartReady(true);
+    setCheckoutProgress("in-cart");
   }, []);
 
   // Save cart to localStorage every time it changes
@@ -81,6 +84,7 @@ function CartProvider({ children }) {
       value={{
         cart,
         setCart,
+        isCartReady,
         addToCart,
         removeFromCart,
         updateQuantity,

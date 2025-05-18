@@ -1,11 +1,10 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react";
+import useProfileUpsert from "@/hooks/useProfileUpsert";
 import CartIcon from "./_cartIcon/CartIcon";
+import LogoBlack from "./_navigation/LogoBlack";
 import Navigation from "./_navigation/Navigation";
 import UserAvatar from "./_userAvatar/UserAvatar";
-import useProfileUpsert from "@/hooks/useProfileUpsert";
-import LogoBlack from "./_navigation/LogoBlack";
 
 export default function Header() {
   useProfileUpsert();

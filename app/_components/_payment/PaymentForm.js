@@ -93,6 +93,7 @@ export default function PaymentForm({ totalPrice }) {
       if (error) {
         setErrorMessage(error.message);
         setIsLoading(false);
+        console.error(error);
         return;
       } else {
         setIsLoading(false);

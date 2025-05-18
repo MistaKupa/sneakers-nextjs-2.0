@@ -3,7 +3,7 @@
 import { createClientInstance } from "@/utils/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation"; // Using Next.js router for client-side navigation
 
 function Logout() {

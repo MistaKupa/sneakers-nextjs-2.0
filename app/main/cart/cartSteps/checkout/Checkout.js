@@ -1,7 +1,7 @@
 "use client";
 
 import Payment from "@/app/_components/_payment/Payment";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import "simplebar-react/dist/simplebar.min.css";
 import CheckoutSummary from "./CheckoutSummary";
 

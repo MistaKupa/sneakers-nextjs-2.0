@@ -1,7 +1,6 @@
 import { useCart } from "@/app/_context/CartContext";
 import Link from "next/link";
 import MiniProductCard from "../../_miniProductCard/MiniProductCard";
-import Button from "../../UI/Button";
 import CartEmpty from "./CartEmpty";
 
 function CartPopup({ isOpen, openPopup, closePopup }) {

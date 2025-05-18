@@ -1,13 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUpUser } from "../_lib/account-service";
-import { useState } from "react";
 
-import { IoArrowForward } from "react-icons/io5";
 import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
 
 export default function SignUp() {

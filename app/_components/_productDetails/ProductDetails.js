@@ -2,7 +2,7 @@
 
 import ProductButtons from "./ProductButtons";
 import ProductPrice from "./ProductPrice";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import ProductSizes from "./ProductSizes";
 import { useState } from "react";
 

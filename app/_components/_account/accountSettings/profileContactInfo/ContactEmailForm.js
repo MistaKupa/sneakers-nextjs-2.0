@@ -1,9 +1,9 @@
 "use client";
 
+import { updateEmail } from "@/app/_lib/account-service";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import ContactInput from "./ContactInput";
-import { motion, AnimatePresence } from "motion/react";
-import { updateEmail } from "@/app/_lib/account-service";
 
 function ContactEmailForm({ profile, setIsEmailOpen }) {
   const { email } = profile;

@@ -2,7 +2,7 @@
 
 import { useUserProfile } from "@/hooks/useUSerProfile";
 import LoadingSpinner from "../../../loadingspinner/LoadingSpinner";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import ContactEmailForm from "./ContactEmailForm";
 import { useEffect, useState } from "react";
 

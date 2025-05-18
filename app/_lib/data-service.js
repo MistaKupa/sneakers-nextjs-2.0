@@ -1,7 +1,7 @@
-import { createClient } from "@/utils/supabase/server";
+import { createServerClientInstance } from "@/utils/supabase/server";
 
 export async function getProducts(gender) {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   const { data, error } = await supabase
     .from("sneakers")
@@ -17,7 +17,7 @@ export async function getProducts(gender) {
 }
 
 export async function getProduct(id) {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   const { data: product, error: productError } = await supabase
     .from("sneakers")
@@ -44,7 +44,7 @@ export async function getProduct(id) {
 }
 
 export async function getUserOrders(email) {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   const { data, error } = await supabase.auth.getUser();
 
@@ -65,7 +65,7 @@ export async function getUserOrders(email) {
 }
 
 export async function getOrderDetails(orderId) {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   let { data: orderItems, error: orderItemsError } = await supabase
     .from("order_items")

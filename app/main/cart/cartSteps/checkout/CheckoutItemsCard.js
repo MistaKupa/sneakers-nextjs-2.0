@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "@/app/_context/CartContext";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import "simplebar-react/dist/simplebar.min.css";
 

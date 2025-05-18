@@ -3,10 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import {
-  createClient,
-  createServerClientInstance,
-} from "@/utils/supabase/server";
+import { createServerClientInstance } from "@/utils/supabase/server";
 
 export async function login(formData) {
   const supabase = await createServerClientInstance();
@@ -29,7 +26,7 @@ export async function login(formData) {
 }
 
 export async function loginWithGoogle() {
-  const supabase = await createClient();
+  const supabase = await createServerClientInstance();
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
@@ -43,5 +40,9 @@ export async function loginWithGoogle() {
       error:
         "Could not log in via Google. Try again or try a different method.",
     };
+  }
+
+  if (data.url) {
+    redirect(data.url);
   }
 }

@@ -4,9 +4,10 @@ import { useCart } from "@/app/_context/CartContext";
 import CartSummary from "./cartSummary/CartSummary";
 import Checkout from "./checkout/Checkout";
 import OrderConfirmed from "./orderConfirmed/OrderConfirmed";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import EmptyCart from "../emptyCart/EmptyCart";
 import { IoCardSharp, IoCartSharp, IoCheckmarkSharp } from "react-icons/io5";
+import LoadingSpinner from "@/app/_components/loadingspinner/LoadingSpinner";
 
 const cartVariants = {
   hidden: { opacity: 0, y: 500 },
@@ -21,7 +22,16 @@ const cartVariants = {
 };
 
 export default function CartSteps() {
-  const { checkoutProgress, cart } = useCart();
+  const { checkoutProgress, cart, isCartReady } = useCart();
+
+  if (!isCartReady) {
+    return (
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center justify-center mt-28 gap-10">
+        <span className="font-semibold text-xl">Loading cart...</span>
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <section className="max-w-[1440px] mx-auto ">

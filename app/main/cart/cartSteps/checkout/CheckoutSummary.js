@@ -2,7 +2,7 @@
 
 import LogoWhite from "@/app/_components/_header/_navigation/LogoWhite";
 import { useCart } from "@/app/_context/CartContext";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { IoArrowBack } from "react-icons/io5";
 import "simplebar-react/dist/simplebar.min.css";
 import CheckoutSummaryItems from "./CheckoutSummaryItems";

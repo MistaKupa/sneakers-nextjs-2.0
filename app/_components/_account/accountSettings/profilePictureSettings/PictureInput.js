@@ -1,7 +1,7 @@
 "use client";
 
 import { createClientInstance } from "@/utils/supabase/client";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
 

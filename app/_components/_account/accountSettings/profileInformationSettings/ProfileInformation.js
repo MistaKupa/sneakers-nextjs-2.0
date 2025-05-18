@@ -1,7 +1,7 @@
 "use client";
 
 import { format } from "date-fns";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import ProfileInformationForm from "./ProfileInformationForm";
 import { useUserProfile } from "@/hooks/useUSerProfile";

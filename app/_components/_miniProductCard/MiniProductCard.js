@@ -4,7 +4,7 @@ import { useCart } from "@/app/_context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { IoTrashOutline } from "react-icons/io5";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function MiniProductCard() {
   const { cart, removeFromCart } = useCart();

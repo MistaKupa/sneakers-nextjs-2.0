@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 
 import { useUserProfile } from "@/hooks/useUSerProfile";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import AvatarMenu from "./AvatarMenu";
 import AvatarMenuMobile from "./AvatarMenuMobile";

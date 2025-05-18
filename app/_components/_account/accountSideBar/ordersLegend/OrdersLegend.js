@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoEllipseOutline } from "react-icons/io5";
 

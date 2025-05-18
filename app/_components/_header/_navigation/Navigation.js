@@ -5,7 +5,7 @@ import navLinks from "@/data/navLinks";
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 
 const listVariants = {
