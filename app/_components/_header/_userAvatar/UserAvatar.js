@@ -3,14 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
-
 import { useUserProfile } from "@/hooks/useUSerProfile";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import AvatarMenu from "./AvatarMenu";
 import AvatarMenuMobile from "./AvatarMenuMobile";
 
-export default function UserAvatar() {
+export default function UserAvatar({ openMenu, setOpenMenu }) {
   const session = useUserProfile();
   const isAuthenticated = !!session?.profile;
 
@@ -23,12 +21,15 @@ export default function UserAvatar() {
 
   const userImage = session?.profile?.avatar_url;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const isOpen = openMenu === "avatar";
 
   return (
-    <div className=" flex items-center justify-center rounded-full">
+    <div className=" flex items-center justify-center rounded-full relative">
       {isAuthenticated ? (
-        <button className="rounded-full" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="rounded-full"
+          onClick={() => setOpenMenu(isOpen ? null : "avatar")}
+        >
           {userImage ? (
             <Image
               src={userImage}
@@ -64,10 +65,10 @@ export default function UserAvatar() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
               className="md:hidden w-full h-screen absolute top-28 left-0 z-50"
+              onClick={closeMenu}
             >
               <AvatarMenuMobile session={session} />
             </motion.div>
-
             <motion.div
               key="avatarPopup"
               initial={{ opacity: 0 }}

@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import navLinks from "@/data/navLinks";
-
+import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 
 const listVariants = {
@@ -19,16 +18,26 @@ const listVariants = {
       staggerChildren: 0.03,
     },
   },
+  exit: {
+    opacity: 0,
+    width: 0,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.03,
+    },
+  },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -10 },
 };
 
-export default function Navigation() {
+export default function Navigation({ openMenu, setOpenMenu }) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+
+  const isOpen = openMenu === "nav";
 
   useEffect(() => {
     if (isOpen) {
@@ -36,7 +45,6 @@ export default function Navigation() {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
@@ -45,24 +53,28 @@ export default function Navigation() {
   return (
     <>
       {/*Mobile menu button*/}
-      <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="md:hidden"
+        onClick={() => setOpenMenu(isOpen ? null : "nav")}
+      >
         {isOpen ? <IoCloseSharp size={25} /> : <IoMenuSharp size={25} />}
       </button>
-
-      {/*Mobile menu nav*/}
-      {isOpen && (
-        <>
+      <AnimatePresence>
+        {isOpen && (
           <nav className="fixed inset-0 top-28 z-50 md:hidden">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="absolute z-10 bg-dark-500/40 w-full h-screen "
-            ></motion.div>
+              onClick={closeMenu}
+            />
             <motion.ul
               variants={listVariants}
               initial="hidden"
               animate="visible"
+              exit="exit"
               className="relative z-20 w-full h-full bg-dark-100 flex flex-col items-center gap-8 py-14 text-dark-400  md:hidden"
             >
               {navLinks.map((item, i) => (
@@ -73,6 +85,7 @@ export default function Navigation() {
                 >
                   <Link
                     href={item.href}
+                    onClick={closeMenu}
                     className={`h-full flex items-center border-b-4 transition-all duration-300 ${
                       pathname === item.href
                         ? "border-newPrimary text-dark-500"
@@ -85,8 +98,8 @@ export default function Navigation() {
               ))}
             </motion.ul>
           </nav>
-        </>
-      )}
+        )}
+      </AnimatePresence>
 
       {/*Desktop nav*/}
       <nav className="h-full">
@@ -99,8 +112,7 @@ export default function Navigation() {
                   pathname === item.href
                     ? "border-newPrimary text-dark-500"
                     : "hover:text-dark-500  border-transparent hover:newPrimary"
-                }
-              `}
+                }`}
               >
                 {item.label}
               </Link>

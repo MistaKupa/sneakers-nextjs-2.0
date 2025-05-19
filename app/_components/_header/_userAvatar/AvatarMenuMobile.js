@@ -8,7 +8,7 @@ import {
 import { TfiPackage } from "react-icons/tfi";
 import UserDetails from "../../_account/accountSideBar/userDetails/UserDetails";
 
-export default function AvatarMenuMobile({}) {
+export default function AvatarMenuMobile() {
   return (
     <div className="h-full w-full flex flex-col items-center  bg-dark-100">
       <motion.div
