@@ -50,9 +50,9 @@ export default function Navigation() {
       </button>
 
       {/*Mobile menu nav*/}
-      <nav className="absolute left-0 top-28 w-full h-screen  md:hidden">
-        {isOpen && (
-          <>
+      {isOpen && (
+        <>
+          <nav className="fixed inset-0 top-28 z-50 md:hidden">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -84,9 +84,9 @@ export default function Navigation() {
                 </motion.li>
               ))}
             </motion.ul>
-          </>
-        )}
-      </nav>
+          </nav>
+        </>
+      )}
 
       {/*Desktop nav*/}
       <nav className="h-full">
