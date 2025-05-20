@@ -68,7 +68,6 @@ export default function Navigation({ openMenu, setOpenMenu }) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="absolute z-10 bg-dark-500/40 w-full h-screen "
-              onClick={closeMenu}
             />
             <motion.ul
               variants={listVariants}
@@ -85,7 +84,7 @@ export default function Navigation({ openMenu, setOpenMenu }) {
                 >
                   <Link
                     href={item.href}
-                    onClick={closeMenu}
+                    onClick={() => setOpenMenu(null)}
                     className={`h-full flex items-center border-b-4 transition-all duration-300 ${
                       pathname === item.href
                         ? "border-newPrimary text-dark-500"

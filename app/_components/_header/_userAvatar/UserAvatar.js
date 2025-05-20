@@ -65,7 +65,6 @@ export default function UserAvatar({ openMenu, setOpenMenu }) {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
               className="md:hidden w-full h-screen absolute top-28 left-0 z-50"
-              onClick={closeMenu}
             >
               <AvatarMenuMobile session={session} />
             </motion.div>
