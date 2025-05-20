@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
+
 import { useUserProfile } from "@/hooks/useUSerProfile";
 import { AnimatePresence, motion } from "framer-motion";
 import AvatarMenu from "./AvatarMenu";
@@ -24,7 +25,7 @@ export default function UserAvatar({ openMenu, setOpenMenu }) {
   const isOpen = openMenu === "avatar";
 
   return (
-    <div className=" flex items-center justify-center rounded-full relative">
+    <div className=" flex items-center justify-center rounded-full">
       {isAuthenticated ? (
         <button
           className="rounded-full"
@@ -68,6 +69,7 @@ export default function UserAvatar({ openMenu, setOpenMenu }) {
             >
               <AvatarMenuMobile session={session} />
             </motion.div>
+
             <motion.div
               key="avatarPopup"
               initial={{ opacity: 0 }}
