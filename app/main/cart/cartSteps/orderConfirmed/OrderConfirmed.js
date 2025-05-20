@@ -16,7 +16,9 @@ export default function OrderConfirmed() {
         transition={{ delay: 0.3, duration: 0.3 }}
         className=" flex flex-col items-center gap-5"
       >
-        <h2 className="text-2xl font-medium">Thank you for your purchase!</h2>
+        <h2 className="text-2xl font-medium text-center">
+          Thank you for your purchase!
+        </h2>
         <Link href="/main/account/myOrders">
           <motion.button
             className="py-2 px-5 bg-newPrimary text-newWhite font-semibold"

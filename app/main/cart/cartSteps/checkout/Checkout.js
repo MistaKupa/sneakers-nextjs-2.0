@@ -19,7 +19,7 @@ export default function Checkout() {
         initial={{ opacity: 0, scaleY: 0 }}
         transition={{ delay: 0.35, duration: 0.35 }}
         exit={{ opacity: 0, y: 500 }}
-        className="flex items-center justify-center w-full h-full"
+        className="flex items-center justify-center w-full h-full p-5"
       >
         <Payment />
       </motion.div>

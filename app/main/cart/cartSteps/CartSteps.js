@@ -49,13 +49,13 @@ export default function CartSteps() {
                     : "100%",
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute top-0 left-0 h-full rounded-md bg-newPrimary z-30 "
+              className="absolute top-0 left-0 h-full rounded-md bg-newPrimary z-10 "
             />
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3 }}
-              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-50"
+              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-20"
             >
               <IoCartSharp size={20} color="white" />
             </motion.div>
@@ -69,7 +69,7 @@ export default function CartSteps() {
                     : 0,
               }}
               transition={{ delay: 0.3 }}
-              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-50"
+              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-20"
             >
               <IoCardSharp size={20} color="white" />
             </motion.div>
@@ -79,7 +79,7 @@ export default function CartSteps() {
                 scale: checkoutProgress === "order-confirmed" ? 1 : 0,
               }}
               transition={{ delay: 0.3 }}
-              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-50"
+              className="flex items-center justify-center bg-newPrimary rounded-full p-2 z-20"
             >
               <IoCheckmarkSharp size={20} color="white" />
             </motion.div>
