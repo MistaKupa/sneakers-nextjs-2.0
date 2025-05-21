@@ -8,7 +8,7 @@ function CartPopup({ isOpen, openPopup, closePopup }) {
 
   return (
     <div
-      className={`absolute top-10 -right-12 md:-right-16 lg:-right-24 min-w-72 md:min-w-96 m-0 rounded-xl flex items-center pt-5  shadow-xl z-20 ${
+      className={`absolute top-10 -right-12 md:-right-16 lg:-right-24 min-w-72 md:min-w-96 m-0 rounded-xl flex items-center pt-5  shadow-xl z-30 ${
         isOpen ? "block" : "hidden"
       }`}
       onMouseEnter={openPopup}
