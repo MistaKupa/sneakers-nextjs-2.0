@@ -1,8 +1,6 @@
 import { getProducts } from "@/app/_lib/data-service";
 import Products from "./Products";
 
-const PAGE_SIZE = 2;
-
 export default async function ProductListingPage({ gender, searchParams }) {
   const sParams = await searchParams;
   const sortBy = sParams?.sortBy || "Name A-Z";
