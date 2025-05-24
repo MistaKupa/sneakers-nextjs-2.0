@@ -7,7 +7,7 @@ import LogoBlack from "./_navigation/LogoBlack";
 import Navigation from "./_navigation/Navigation";
 import UserAvatar from "./_userAvatar/UserAvatar";
 
-export default function Header() {
+export default function Header({}) {
   useProfileUpsert();
 
   const [openMenu, setOpenMenu] = useState(null);

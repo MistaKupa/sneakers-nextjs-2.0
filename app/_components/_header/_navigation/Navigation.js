@@ -102,7 +102,7 @@ export default function Navigation({ openMenu, setOpenMenu }) {
 
       {/*Desktop nav*/}
       <nav className="h-full">
-        <ul className="hidden md:flex gap-10 w-full h-full text-dark-400 lg:text-lg font-medium">
+        <ul className="hidden md:flex gap-10 w-full h-full text-dark-400 lg:text-base font-medium">
           {navLinks.map((item, i) => (
             <li className="h-full flex items-center" key={i}>
               <Link

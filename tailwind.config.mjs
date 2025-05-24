@@ -5,6 +5,23 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
+  safelist: [
+    // Colors used dynamically
+    "bg-red-600",
+    "bg-blue-800",
+    "bg-lime-400",
+    "bg-black",
+    "bg-purple-700",
+    "bg-cyan-500",
+    "text-red-600",
+    "text-lime-400",
+    "text-purple-700",
+    "border-red-600",
+    "border-lime-400",
+    "border-purple-700",
+  ],
+
   theme: {
     extend: {
       colors: {

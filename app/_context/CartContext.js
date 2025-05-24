@@ -8,6 +8,7 @@ function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [checkoutProgress, setCheckoutProgress] = useState("");
   const [isCartReady, setIsCartReady] = useState(false);
+  const [cartColor, setCartColor] = useState(0);
 
   // Load cart from localStorage on first load
   useEffect(() => {
@@ -92,6 +93,8 @@ function CartProvider({ children }) {
         checkoutProgress,
         setCheckoutProgress,
         totalCartPrice,
+        cartColor,
+        setCartColor,
       }}
     >
       {children}

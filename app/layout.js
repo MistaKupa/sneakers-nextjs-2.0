@@ -17,7 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${kumbhSans.className} antialiased mx-auto `}>
+      <body className={`${kumbhSans.className} antialiased mx-auto`}>
         <CartProvider>{children}</CartProvider>
         <Toaster position="top-center" />
       </body>

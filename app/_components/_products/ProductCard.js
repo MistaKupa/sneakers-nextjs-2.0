@@ -11,7 +11,7 @@ function ProductCard({ product }) {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       key={product.id}
-      className="flex flex-col justify-between gap-4 rounded-xl w-full h-full bg-white shadow-sm hover:shadow-md transition-shadow"
+      className="flex flex-col justify-between gap-4 rounded-xl w-full h-full bg-white "
     >
       {/* Image Wrapper */}
       <motion.div
