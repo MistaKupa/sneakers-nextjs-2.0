@@ -1,7 +1,13 @@
 import { getProducts } from "@/app/_lib/data-service";
 import Products from "./Products";
 
-export default async function ProductListingPage({ gender, searchParams }) {
+export default async function ProductListingPage({
+  gender,
+  pageSize,
+  searchParams,
+}) {
+  const PAGE_SIZE = pageSize;
+
   const sParams = await searchParams;
   const sortBy = sParams?.sortBy || "Name A-Z";
   const page = parseInt(sParams?.page) || 1;
