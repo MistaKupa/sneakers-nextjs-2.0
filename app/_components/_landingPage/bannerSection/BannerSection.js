@@ -33,7 +33,7 @@ export default function BannerSection({ products }) {
           pinSpacing: false,
           start: "top top",
           end: "bottom top",
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -50,7 +50,7 @@ export default function BannerSection({ products }) {
 
       tl2.fromTo(bannerContent, { scale: 1 }, { scale: 0.85 });
     },
-    { scope: bannerContainerRef, }
+    { scope: bannerContainerRef }
   );
 
   return (

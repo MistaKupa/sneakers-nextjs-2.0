@@ -41,13 +41,13 @@ export default function AboutAboutSection() {
             scrub: 2,
             start: "-40% top",
             end: "+=2150 top",
-            markers: {
-              startColor: "blue",
-              endColor: "pink",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 20,
-            },
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "pink",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 20,
+            // },
           },
         });
         let tl2 = gsap.timeline({
@@ -56,13 +56,13 @@ export default function AboutAboutSection() {
             scrub: 8,
             start: "-40% top",
             end: "+=2150 top",
-            markers: {
-              startColor: "blue",
-              endColor: "pink",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 100,
-            },
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "pink",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 100,
+            // },
           },
         });
         let tl3 = gsap.timeline({
@@ -71,13 +71,13 @@ export default function AboutAboutSection() {
             scrub: 2,
             start: "-80% top",
             end: "+=2150 top",
-            markers: {
-              startColor: "blue",
-              endColor: "pink",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 100,
-            },
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "pink",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 100,
+            // },
           },
         });
         let tl4 = gsap.timeline({
@@ -86,13 +86,13 @@ export default function AboutAboutSection() {
             scrub: 11,
             start: "-80% top",
             end: "+=2150 top",
-            markers: {
-              startColor: "blue",
-              endColor: "pink",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 100,
-            },
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "pink",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 100,
+            // },
           },
         });
 

@@ -34,13 +34,13 @@ export default function AboutFeaturesSection() {
             scrub: 3,
             start: "-80% top",
             end: "90% top",
-            markers: {
-              startColor: "black",
-              endColor: "orange",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 150,
-            },
+            // markers: {
+            //   startColor: "black",
+            //   endColor: "orange",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 150,
+            // },
           },
         });
         let tl2 = gsap.timeline({
@@ -50,13 +50,13 @@ export default function AboutFeaturesSection() {
             pin: true,
             start: "top top",
             end: "120% top",
-            markers: {
-              startColor: "black",
-              endColor: "black",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 150,
-            },
+            // markers: {
+            //   startColor: "black",
+            //   endColor: "black",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 150,
+            // },
           },
         });
         tl1.fromTo(
@@ -85,13 +85,13 @@ export default function AboutFeaturesSection() {
             scrub: 3,
             start: "-30% top",
             end: "bottom top",
-            markers: {
-              startColor: "green",
-              endColor: "orange",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 150,
-            },
+            // markers: {
+            //   startColor: "green",
+            //   endColor: "orange",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 150,
+            // },
           },
         });
         let tl2 = gsap.timeline({
@@ -101,13 +101,13 @@ export default function AboutFeaturesSection() {
             pin: true,
             start: "top top",
             end: "70% top",
-            markers: {
-              startColor: "black",
-              endColor: "black",
-              fontSize: "22px",
-              fontWeight: "bold",
-              indent: 150,
-            },
+            // markers: {
+            //   startColor: "black",
+            //   endColor: "black",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 150,
+            // },
           },
         });
         tl1.fromTo(featuresBackground, { opacity: 0 }, { opacity: 1 });

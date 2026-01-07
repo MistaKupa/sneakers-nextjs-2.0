@@ -24,13 +24,13 @@ export default function AboutBannerSection() {
           scrub: 2,
           start: "top top",
           end: "bottom top",
-          markers: {
-            startColor: "black",
-            endColor: "orange",
-            fontSize: "22px",
-            fontWeight: "bold",
-            indent: 150,
-          },
+          // markers: {
+          //   startColor: "black",
+          //   endColor: "orange",
+          //   fontSize: "22px",
+          //   fontWeight: "bold",
+          //   indent: 150,
+          // },
         },
       });
       tl1.to(bannerImage, { scale: 1.1 });

@@ -23,7 +23,7 @@ export default function SustainabilitySection() {
           end: "+=1820 top",
           scrub: 0.2,
           pin: true,
-          markers: true,
+          // markers: true,
         },
       });
 

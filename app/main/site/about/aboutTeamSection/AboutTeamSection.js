@@ -30,11 +30,11 @@ export default function AboutTeamSection() {
           scrub: 7,
           start: "-90% top",
           end: "+=500 top",
-          markers: {
-            startColor: "purple",
-            endColor: "black",
-            fontSize: "30px",
-          },
+          // markers: {
+          //   startColor: "purple",
+          //   endColor: "black",
+          //   fontSize: "30px",
+          // },
         },
       });
       tl1.fromTo(
@@ -49,11 +49,11 @@ export default function AboutTeamSection() {
           scrub: 2,
           start: "top top",
           end: "+=2500 top",
-          markers: {
-            startColor: "purple",
-            endColor: "brown",
-            fontSize: "30px",
-          },
+          // markers: {
+          //   startColor: "purple",
+          //   endColor: "brown",
+          //   fontSize: "30px",
+          // },
         },
       });
       tl2.fromTo(".subHeading", { opacity: 0 }, { opacity: 1, delay: 0.2 }, 0);

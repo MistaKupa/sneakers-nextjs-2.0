@@ -30,13 +30,13 @@ export default function KidStylesSection({ kidStyles }) {
           scrub: 0.2,
           start: "top top",
           end: "+=1890 top",
-          markers: {
-            startColor: "blue",
-            endColor: "pink",
-            fontSize: "22px",
-            fontWeight: "bold",
-            indent: 20,
-          },
+          // markers: {
+          //   startColor: "blue",
+          //   endColor: "pink",
+          //   fontSize: "22px",
+          //   fontWeight: "bold",
+          //   indent: 20,
+          // },
         },
       });
 
@@ -48,7 +48,7 @@ export default function KidStylesSection({ kidStyles }) {
           scrub: 0.2,
           start: "-120% top",
           end: "bottom top",
-          markers: true,
+          // markers: true,
         },
       });
 
