@@ -1,5 +1,5 @@
-import AccountOrders from "@/app/_components/_account/accountOrders/AccountOrders";
-import OrdersLegend from "@/app/_components/_account/accountSideBar/ordersLegend/OrdersLegend";
+import AccountOrders from "@/_components/_account/accountOrders/AccountOrders";
+import OrdersLegend from "@/_components/_account/accountSideBar/ordersLegend/OrdersLegend";
 
 export default function MyOrders({ searchParams }) {
   return (

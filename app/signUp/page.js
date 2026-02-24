@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUpUser } from "../_lib/account-service";
 
-import VerifyAccount from "../_components/verifyAccount/VerifyAccount";
+import VerifyAccount from "../../_components/verifyAccount/VerifyAccount";
 
 export default function SignUp() {
   const {

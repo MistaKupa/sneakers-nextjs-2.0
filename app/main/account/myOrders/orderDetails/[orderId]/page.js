@@ -1,4 +1,4 @@
-import Details from "@/app/_components/_account/accountOrders/details/Details";
+import Details from "@/_components/_account/accountOrders/details/Details";
 import { getOrderDetails } from "@/app/_lib/data-service";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,7 +7,7 @@ import { IoArrowBack } from "react-icons/io5";
 export default async function OrderDetails({ params }) {
   const routeParams = await params;
   const { orderItems, orderDetails } = await getOrderDetails(
-    routeParams.orderId
+    routeParams.orderId,
   );
 
   if (!orderItems && !orderDetails) {

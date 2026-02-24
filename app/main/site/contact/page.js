@@ -1,6 +1,6 @@
 "use client";
 
-import Map from "@/app/_components/_googleMap/Map";
+import Map from "@/_components/_googleMap/Map";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 

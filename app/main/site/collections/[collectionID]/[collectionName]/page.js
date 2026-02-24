@@ -1,4 +1,4 @@
-import ProductListingPage from "@/app/_components/_products/ProductsListingPage";
+import ProductListingPage from "@/_components/_products/ProductsListingPage";
 import {
   getCollectionDetailsByID,
   getProductsByCollectionID,

@@ -7,7 +7,7 @@ import OrderConfirmed from "./orderConfirmed/OrderConfirmed";
 import { AnimatePresence, motion } from "framer-motion";
 import EmptyCart from "../emptyCart/EmptyCart";
 import { IoCardSharp, IoCartSharp, IoCheckmarkSharp } from "react-icons/io5";
-import LoadingSpinner from "@/app/_components/loadingspinner/LoadingSpinner";
+import LoadingSpinner from "@/_components/loadingspinner/LoadingSpinner";
 
 const cartVariants = {
   hidden: { opacity: 0, y: 500 },
@@ -45,8 +45,8 @@ export default function CartSteps() {
                   checkoutProgress === "in-cart"
                     ? 0
                     : checkoutProgress === "in-checkout"
-                    ? "50%"
-                    : "100%",
+                      ? "50%"
+                      : "100%",
               }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="absolute top-0 left-0 h-full rounded-md bg-newPrimary z-10 "

@@ -12,16 +12,21 @@
     "@gsap/react": "^2.1.2",
     "@stripe/react-stripe-js": "^3.1.1",
     "@stripe/stripe-js": "^5.6.0",
-    "@supabase/ssr": "^0.6.1",
-    "@supabase/supabase-js": "^2.49.1",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.97.0",
+    "@tanstack/react-query": "^5.90.21",
+    "@tanstack/react-query-devtools": "^5.91.3",
     "@vis.gl/react-google-maps": "^1.7.1",
+    "clsx": "^2.1.1",
     "cookies-next": "^5.1.0",
     "date-fns": "^4.1.0",
+    "echarts": "^6.0.0",
+    "echarts-for-react": "^3.0.6",
     "gsap": "^3.13.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.510.0",
     "motion": "^12.4.0",
-    "next": "15.5.9",
+    "next": "^15.1.0",
     "next-auth": "^4.24.11",
     "next-safe-action": "^7.10.3",
     "react": "^19.0.0",
@@ -31,13 +36,23 @@
     "react-icons": "^5.4.0",
     "simplebar-react": "^3.3.0",
     "stripe": "^17.6.0",
+    "tailwind-merge": "^3.4.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "@eslint/eslintrc": "^3.2.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^4.1.1",
+    "eslint-config-next": "^0.2.4",
+    "postcss": "^8.4.49",
+    "supabase": "^2.76.11",
+    "tailwindcss": "^3.4.16",
+    "typescript": "5.7.2"
+  },
+  "overrides": {
+    "@supabase/supabase-js": "$@supabase/supabase-js",
+    "typescript": "5.7.2"
   }
 }

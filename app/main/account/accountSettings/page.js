@@ -1,4 +1,4 @@
-import AccSettings from "@/app/_components/_account/accountSettings/AccSettings";
+import AccSettings from "@/_components/_account/accountSettings/AccSettings";
 
 export default function AccountSettings() {
   return (

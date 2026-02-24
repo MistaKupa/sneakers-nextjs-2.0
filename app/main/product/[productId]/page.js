@@ -1,5 +1,5 @@
-import ProductDescription from "@/app/_components/_productDetails/ProductDetails";
-import ProductImage from "@/app/_components/_productDetails/ProductImage";
+import ProductDescription from "@/_components/_productDetails/ProductDetails";
+import ProductImage from "@/_components/_productDetails/ProductImage";
 import { getProduct } from "@/app/_lib/data-service";
 import { notFound } from "next/navigation";
 
