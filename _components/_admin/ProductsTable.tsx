@@ -4,6 +4,7 @@ import { getAllProductsClient } from "@/app/_lib/admin-service-client";
 import { cn } from "@/app/_lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import ProductCard from "./ProductCard";
+import ProductCardForm from "./ProductCardForm";
 
 export default function ProductsTable() {
   const { data, isPending, error } = useQuery({
@@ -42,7 +43,8 @@ export default function ProductsTable() {
         </div>
         <div className="grid grid-rows-[auto]">
           {data.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            // <ProductCard key={product.id} product={product} />
+            <ProductCardForm key={product.id} product={product} />
           ))}
         </div>
       </div>
