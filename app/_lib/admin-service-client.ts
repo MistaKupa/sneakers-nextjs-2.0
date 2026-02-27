@@ -130,3 +130,25 @@ export async function getAllProductsClient() {
 
   return products;
 }
+
+export async function updateProduct({
+  id,
+  changes,
+}: {
+  id: ProductId;
+  changes: ProductUpdate;
+}) {
+  const supabse = createClientInstance();
+
+  console.log(id, changes);
+
+  const { data, error } = await supabse
+    .from("sneakers")
+    .update(changes)
+    .eq("id", id);
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Product could not be updated!");
+  }
+}
