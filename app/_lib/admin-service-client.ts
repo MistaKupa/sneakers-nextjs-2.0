@@ -1,6 +1,6 @@
-import { Database } from "@/types/database.types";
-import { OrderId, OrderStatus, OrderUpdate } from "@/types/order.types";
-import { UserId } from "@/types/user.types";
+import { OrderId, OrderUpdate } from "@/types/order.types";
+import { ProductId, ProductUpdate } from "@/types/product.types";
+import { UserId, UserUpdate } from "@/types/user.types";
 import { createClientInstance } from "@/utils/supabase/client";
 
 export async function getOrdersClient() {
@@ -81,7 +81,7 @@ export async function getOrderDetailsClient(orderId: OrderId) {
   return { orderItems, orderDetails };
 }
 
-/////////////////// GET USERS DATA //////////////////
+///////////////////  USER DATA //////////////////
 
 export async function getUsersClient() {
   const supabase = createClientInstance();
@@ -113,7 +113,27 @@ export async function getUserDetailsClient(userId: UserId) {
   return userDetails;
 }
 
-/////////////////// GET PRODUCTS //////////////////
+export async function updateUserClient({
+  id,
+  changes,
+}: {
+  id: UserId;
+  changes: UserUpdate;
+}) {
+  const supabase = createClientInstance();
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .update(changes)
+    .eq("user_id", id);
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("User data could not be updated!");
+  }
+}
+
+/////////////////// PRODUCTS //////////////////
 
 export async function getAllProductsClient() {
   const supabase = createClientInstance();
@@ -129,4 +149,26 @@ export async function getAllProductsClient() {
   }
 
   return products;
+}
+
+export async function updateProduct({
+  id,
+  changes,
+}: {
+  id: ProductId;
+  changes: ProductUpdate;
+}) {
+  const supabse = createClientInstance();
+
+  console.log(id, changes);
+
+  const { data, error } = await supabse
+    .from("sneakers")
+    .update(changes)
+    .eq("id", id);
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Product could not be updated!");
+  }
 }

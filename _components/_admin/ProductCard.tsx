@@ -1,18 +1,29 @@
 "use client";
 
 import { cn } from "@/app/_lib/utils";
-import { Product } from "@/types/product.types";
+import { Product, ProductId } from "@/types/product.types";
 import Image from "next/image";
 
 import Link from "next/link";
-import { IoCopyOutline, IoEyeOutline, IoTrashOutline } from "react-icons/io5";
+import {
+  IoCopyOutline,
+  IoEyeOutline,
+  IoPencilOutline,
+  IoTrashOutline,
+} from "react-icons/io5";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({
+  product,
+  onEdit,
+}: {
+  product: Product;
+  onEdit: (id: ProductId) => void;
+}) {
   return (
     <div
       className={cn(
         "h-28 px-10 py-2",
-        "grid grid-cols-[repeat(6,1fr)_4rem] gap-10 items-center",
+        "grid grid-cols-[repeat(6,1fr)_6rem] gap-10 items-center",
         "border-b-2 last:border-0",
       )}
     >
@@ -54,6 +65,12 @@ export default function ProductCard({ product }: { product: Product }) {
         >
           <IoEyeOutline />
         </Link>
+        <button
+          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300 cursor-pointer"
+          onClick={() => onEdit(product.id)}
+        >
+          <IoPencilOutline />
+        </button>
         <button className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300">
           <IoTrashOutline />
         </button>

@@ -1,4 +1,4 @@
-import Details from "@/_components/_admin/Details";
+import DetailsUser from "@/_components/_admin/detailsUser/DetailsUser";
 import { getUserDetailsServer } from "@/app/_lib/admin-service-server";
 import {
   dehydrate,
@@ -25,7 +25,7 @@ export default async function UserDetails({
   return (
     <div className="w-full h-full">
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <Details userId={userId} />
+        <DetailsUser userId={userId} />
       </HydrationBoundary>
     </div>
   );
