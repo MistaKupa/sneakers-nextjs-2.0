@@ -29,8 +29,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        orange: "hsl(26, 100%, 55%)",
-        orangePale: "hsl(25, 100%, 70%)",
+        orange: "#ff9466",
+        orangePale: "#ffb798",
         dark: {
           600: "hsl(220, 12%, 12%)",
           500: "hsl(220, 13%, 13%)",

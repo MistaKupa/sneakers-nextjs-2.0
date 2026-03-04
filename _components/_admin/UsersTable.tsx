@@ -15,20 +15,24 @@ export default function UsersTable() {
     <div className="bg-slate-50 drop-shadow rounded-sm">
       <h2
         className={cn(
-          "w-full py-5 px-10",
-          " border-b-4 border-b-white",
+          "w-full py-5 px-5",
+          "border-b-4 border-b-white",
           "font-semibold text-xl",
+
+          "xl:px-10",
         )}
       >
-        Last Orders
+        Users
       </h2>
       <div className="w-full">
         <div
           className={cn(
-            "w-full py-5 px-10",
-            "grid grid-cols-[repeat(6,1fr)_4rem] gap-5",
+            "hidden",
+            "w-full py-5 px-5 lg:px-10",
             "border-b-4 border-b-white",
             "font-medium bg-slate-100",
+
+            "lg:grid lg:grid-cols-[repeat(6,1fr)_4rem] lg:gap-5",
           )}
         >
           <div>User ID</div>

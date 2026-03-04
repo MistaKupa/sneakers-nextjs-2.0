@@ -1,5 +1,10 @@
 import { OrderId, OrderUpdate } from "@/types/order.types";
-import { ProductId, ProductUpdate } from "@/types/product.types";
+import {
+  ProductId,
+  ProductInsert,
+  ProductInsertFormValues,
+  ProductUpdate,
+} from "@/types/product.types";
 import { UserId, UserUpdate } from "@/types/user.types";
 import { createClientInstance } from "@/utils/supabase/client";
 
@@ -151,6 +156,23 @@ export async function getAllProductsClient() {
   return products;
 }
 
+export async function getProductDetailsClient(id: ProductId) {
+  const supabase = createClientInstance();
+
+  let { data, error } = await supabase
+    .from("sneakers")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Product details could not be loaded");
+  }
+
+  return data;
+}
+
 export async function updateProduct({
   id,
   changes,
@@ -158,11 +180,9 @@ export async function updateProduct({
   id: ProductId;
   changes: ProductUpdate;
 }) {
-  const supabse = createClientInstance();
+  const supabase = createClientInstance();
 
-  console.log(id, changes);
-
-  const { data, error } = await supabse
+  const { data: productData, error } = await supabase
     .from("sneakers")
     .update(changes)
     .eq("id", id);
@@ -171,4 +191,67 @@ export async function updateProduct({
     console.error(error.message);
     throw new Error("Product could not be updated!");
   }
+}
+
+export async function createNewProductClient({
+  newProductForm,
+  imageFiles,
+}: {
+  newProductForm: Omit<ProductInsert, "images">;
+  imageFiles: File[];
+}) {
+  const supabase = createClientInstance();
+  const folderName = newProductForm.title.replace(/\s+/g, "_");
+
+  // 1. Uploadnem Image
+
+  const uploadPromises = imageFiles.map(async (image) => {
+    const fileName = `${folderName}/${crypto.randomUUID()}`;
+
+    const { data, error: storageUploadError } = await supabase.storage
+      .from("images")
+      .upload(fileName, image);
+
+    if (storageUploadError) {
+      console.error(storageUploadError.message);
+      throw new Error("Image could not be uploaded into storage");
+    }
+
+    return supabase.storage.from("images").getPublicUrl(data.path).data
+      .publicUrl;
+  });
+
+  const imageUrls = await Promise.all(uploadPromises);
+
+  // 2. Vytvorim produkt v DB
+
+  const { data: newProductData, error: newProductError } = await supabase
+    .from("sneakers")
+    .insert([{ ...newProductForm, images: imageUrls }])
+    .select()
+    .single();
+
+  if (newProductError) {
+    console.error(newProductError.message);
+    throw new Error("New product could not be created");
+  }
+
+  return newProductData;
+}
+
+/////////////////// GET TOTAL PRODUCTS //////////////////
+
+export async function getTotalProductsClient() {
+  const supabase = createClientInstance();
+
+  let { data, error } = await supabase
+    .from("order_items")
+    .select("quantity, price_at_time, product_category");
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Products could not be loaded");
+  }
+
+  return data;
 }

@@ -14,13 +14,26 @@ export default function UserCard({ user }: { user: UserCardData }) {
   return (
     <div
       className={cn(
-        "h-14 px-10",
-        "grid grid-cols-[repeat(6,1fr)_4rem] gap-10 items-center",
-        "border-b-2 last:border-0 ",
+        "p-5",
+        "flex flex-col gap-3",
+        "border-b-2 last:border-0",
+
+        "md:gap-6",
+
+        "xl:grid xl:grid-cols-[repeat(6,1fr)_4rem] xl:gap-10 xl:items-center",
+        "xl:h-36 xl:px-10 bg-slate-50",
       )}
     >
-      <div>{user.user_id}</div>
-      <div>{user.display_name}</div>
+      <div
+        className={cn(
+          "font-extrabold border-b pb-3",
+          "xl:font-normal xl:border-0 xl:pb-0",
+        )}
+      >
+        {user.user_id}
+      </div>
+
+      <div className="font-semibold xl:font-normal">{user.display_name}</div>
       <div
         className={cn(
           "min-w-0",
@@ -125,7 +138,7 @@ export default function UserCard({ user }: { user: UserCardData }) {
             )}
           >
             <p>
-              Are you sure you want to delete user{" "}
+              Are you sure you want to delete user
               <span className="font-bold">5</span>?
             </p>
             <div className="flex gap-5">

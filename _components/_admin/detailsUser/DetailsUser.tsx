@@ -25,22 +25,24 @@ export default function DetailsUser({ userId }: { userId: UserId }) {
     <div
       className={cn(
         "w-full h-full",
-        "grid grid-cols-2 grid-rows-2 gap-y-10",
-        "[grid-template-areas:'avatar_topdetail''avatar_botdetail']",
+        "flex flex-col gap-16",
+
+        "lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-y-10",
+        "lg:[grid-template-areas:'avatar_topdetail''avatar_botdetail']",
       )}
     >
       {/*BASIC INFO FORM*/}
-      <div className="w-full h-full [grid-area:avatar] flex justify-center">
+      <div className="w-full h-full flex justify-center lg:[grid-area:avatar] ">
         <BasicInfoForm userId={userId} data={userData} />
       </div>
 
       {/* Identity & Access */}
-      <div className="[grid-area:topdetail] w-full h-full">
+      <div className="lg:[grid-area:topdetail] w-full h-full">
         <IdentityAccess userId={userId} data={userData} />
       </div>
 
       {/* Personal Details */}
-      <div className="[grid-area:botdetail] w-full h-full">
+      <div className="lg:[grid-area:botdetail] w-full h-full">
         <PersonalDetails userId={userId} data={userData} />
       </div>
     </div>

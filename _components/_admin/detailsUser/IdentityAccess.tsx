@@ -85,11 +85,11 @@ export default function IdentityAccess({
   }, [data, resetGender, resetRole]);
 
   return (
-    <div className="w-11/12 h-full bg-slate-50 rounded drop-shadow flex flex-col gap-8">
-      <h2 className="text-xl font-bold border-b px-16 py-5">
+    <div className="w-full xl:w-11/12 h-full bg-slate-50 rounded drop-shadow flex flex-col gap-8 pb-10">
+      <h2 className="text-xl font-bold border-b px-8 xl:px-16 py-5">
         Identity & Access
       </h2>
-      <div className="px-16 flex flex-col gap-12 h-full">
+      <div className="px-8 xl:px-16 flex flex-col gap-12 h-full">
         {/* GENDER FORM */}
         <form
           onSubmit={handleSubmitGender(submitGender)}

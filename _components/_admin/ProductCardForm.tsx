@@ -58,112 +58,123 @@ export default function ProductCardForm({
     <form
       onSubmit={handleSubmit(onSubmit)}
       className={cn(
-        "h-28 px-10 py-2",
-        "grid grid-cols-[repeat(6,1fr)_6rem] gap-10 items-center",
-        "border-b-2 last:border-0",
-        isPending && "opacity-85 cursor-wait",
+        "grid grid-cols-4 grid-rows-5 items-center gap-3 p-5 border-b-2 last:border-0 transition-opacity",
+        "lg:h-28 lg:px-10 lg:py-2 lg:grid grid-cols-[repeat(6,1fr)_8rem] lg:grid-rows-1 lg:gap-6",
+        isPending && "opacity-60 cursor-wait",
       )}
     >
-      <div className="relative w-1/2 h-full">
+      {/* Thumbnail */}
+      <div className="relative w-full h-full min-h-[100px] col-span-2 row-span-4 lg:col-auto lg:row-auto lg:h-20 lg:w-20 rounded overflow-hidden">
         <Image
           src={product.images[0]}
-          alt="Sneaker thumbnail"
+          alt="Thumbnail"
           fill
           className="object-cover"
         />
       </div>
-      <div>{product.id}</div>
-      <div className="relative w-full">
+
+      {/* ID */}
+      <div className="text-xs font-mono lg:text-sm">#{product.id}</div>
+
+      {/* Title Input */}
+      <div className="row-start-2 col-start-3 col-span-2 lg:col-auto lg:row-auto relative">
         <input
           type="text"
           {...register("title", {
-            required: true,
-            minLength: {
-              value: 3,
-              message: "Title needs to have at least 3 letters.",
-            },
+            required: "Title is required",
+            minLength: { value: 3, message: "At least 3 chars" },
           })}
           disabled={isPending}
           className={cn(
-            "w-full px-1 border rounded disabled:cursor-wait",
-            errors.title && "border-red-500",
+            "w-full px-2 py-1 border rounded text-sm",
+            errors.title ? "border-red-500" : "border-slate-300",
           )}
         />
         {errors.title && <ErrorSpan error={errors.title.message} />}
       </div>
 
-      <div className="relative w-1/3">
-        <input
-          type="number"
-          step="0.01"
-          {...register("price", {
-            required: true,
-            valueAsNumber: true,
-            min: { value: 10, message: "Price needs to be at least 10." },
-          })}
-          disabled={isPending}
-          className={cn(
-            "w-full px-1 border rounded disabled:cursor-wait",
-            errors.price && "border-red-500",
-          )}
-        />
+      {/* Price Input */}
+      <div className="row-start-3 col-start-3 lg:col-auto lg:row-auto relative">
+        <div className="flex items-center gap-1">
+          <span className="text-xs">€</span>
+          <input
+            type="number"
+            step="0.01"
+            {...register("price", {
+              required: true,
+              valueAsNumber: true,
+              min: { value: 10, message: "Min 10" },
+            })}
+            disabled={isPending}
+            className={cn(
+              "w-full px-1 py-1 border rounded text-sm font-semibold",
+              errors.price ? "border-red-500" : "border-slate-300",
+            )}
+          />
+        </div>
         {errors.price && <ErrorSpan error={errors.price.message} />}
       </div>
 
-      <div className="relative w-1/3">
-        <input
-          type="number"
-          {...register("discount", {
-            required: true,
-            valueAsNumber: true,
-            min: { value: 0, message: "Discount cant be less than 0." },
-            max: { value: 100, message: "Discount cant be more than 100." },
-          })}
-          disabled={isPending}
-          className={cn(
-            "w-full px-1 border rounded disabled:cursor-wait",
-            errors.discount && "border-red-500",
-          )}
-        />
-        {errors.discount && <ErrorSpan error={errors.discount.message} />}
+      {/* Discount Input */}
+      <div className="row-start-3 col-start-4 place-self-end lg:place-self-auto lg:col-auto lg:row-auto relative">
+        <div className="flex items-center gap-1">
+          <input
+            type="number"
+            {...register("discount", {
+              valueAsNumber: true,
+              min: 0,
+              max: 100,
+            })}
+            disabled={isPending}
+            className={cn(
+              "w-16 px-1 py-1 border rounded text-sm text-center",
+              errors.discount ? "border-red-500" : "border-slate-300",
+            )}
+          />
+          <span className="text-xs">%</span>
+        </div>
       </div>
 
-      <div className="relative w-1/3">
+      {/* Stock Input */}
+      <div className="row-start-4 col-start-3 lg:col-auto lg:row-auto relative">
         <input
           type="number"
           {...register("stock", {
-            required: true,
             valueAsNumber: true,
-            min: { value: 0, message: "Quantity cant be less than 0" },
-            max: { value: 30, message: "Quantity cant be more than 30" },
+            min: 0,
           })}
           disabled={isPending}
           className={cn(
-            "w-full px-1 border rounded disabled:cursor-wait",
-            errors.stock && "border-red-500",
+            "w-20 px-1 py-1 border rounded text-sm",
+            errors.stock ? "border-red-500" : "border-slate-300",
           )}
         />
-        {errors.stock && <ErrorSpan error={errors.stock.message} />}
+        <span className="ml-2 text-xs text-slate-400">u</span>
       </div>
 
-      <div className="flex justify-between">
+      {/* Actions */}
+      <div className="flex gap-2 row-start-5 col-span-2 lg:col-auto lg:row-auto lg:justify-end">
         <button
-          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300 disabled:cursor-not-allowed"
-          disabled={!isDirty}
+          type="submit"
+          disabled={!isDirty || isPending}
+          className="p-1 bg-green-500 text-white rounded shadow-sm hover:bg-green-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-all cursor-pointer"
+          title="Save changes"
         >
-          <IoCheckmark />
+          <IoCheckmark size={20} />
         </button>
         <button
-          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300"
+          type="button"
+          className="p-1 bg-white border rounded shadow-sm hover:bg-slate-50 transition-all cursor-pointer"
           onClick={onClose}
+          title="Cancel"
         >
-          <IoCloseOutline />
+          <IoCloseOutline size={20} />
         </button>
         <Link
-          href={`/admin/products`}
-          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300"
+          href={`/admin/products/${product.id}`}
+          className="p-1 bg-slate-100 border rounded shadow-sm hover:bg-slate-200 transition-all"
         >
-          <IoEyeOutline />
+          <IoEyeOutline size={20} />
         </Link>
       </div>
     </form>

@@ -77,9 +77,10 @@ export default function OrderCardAdmin({ order }) {
       <div
         key={order.id}
         className={cn(
-          "h-14 px-10",
-          "grid grid-cols-[repeat(5,1fr)_4rem] gap-10 items-center",
-          "border-b-2 last:border-0 ",
+          "h-14 lg:px-5",
+          "border-b",
+          "lg:grid grid-cols-[repeat(5,1fr)_4rem] gap-10 items-center",
+          "xl:px-10",
           {
             "opacity-75 bg-slate-200 cursor-wait": changingStatus,
           },
@@ -87,7 +88,7 @@ export default function OrderCardAdmin({ order }) {
       >
         <div>{order.id}</div>
         <div>{formatedOrderDate}</div>
-        <div>€{order.total_price.toFixed(2)}</div>
+        <div className="">€{order.total_price.toFixed(2)}</div>
         <div
           onClick={() => {
             navigator.clipboard.writeText(order.customer_email);
@@ -124,7 +125,7 @@ export default function OrderCardAdmin({ order }) {
 
         <div
           className={cn(
-            "relative",
+            "relative  min-w-0",
             "group cursor-pointer",
             "flex items-center gap-2",
           )}
@@ -132,7 +133,7 @@ export default function OrderCardAdmin({ order }) {
           <span
             className={cn(
               orderStatusColorCode[order.status].color,
-              "capitalize",
+              "capitalize ",
               "group-hover:font-medium",
               {
                 "cursor-wait": changingStatus,
@@ -199,60 +200,60 @@ export default function OrderCardAdmin({ order }) {
             <IoTrashOutline />
           </button>
         </div>
+      </div>
 
-        {isModalOpen && (
+      {isModalOpen && (
+        <div
+          className={cn(
+            "fixed inset-0 z-50",
+            "flex items-center justify-center",
+            "bg-black/50",
+          )}
+        >
           <div
             className={cn(
-              "fixed inset-0 z-50",
-              "flex items-center justify-center",
-              "bg-black/50",
+              "",
+              "w-96 h-36 p-5",
+              "flex flex-col justify-between items-center",
+              "bg-slate-100 shadow-sm",
+              "rounded",
             )}
           >
-            <div
-              className={cn(
-                "",
-                "w-96 h-36 p-5",
-                "flex flex-col justify-between items-center",
-                "bg-slate-100 shadow-sm",
-                "rounded",
-              )}
-            >
-              <p>
-                Are you sure you want to delete order{" "}
-                <span className="font-bold">{order.id}</span>?
-              </p>
-              <div className="flex gap-5">
-                <button
-                  onClick={() => setIsModalOpen(!isModalOpen)}
-                  className={cn(
-                    "w-24 h-8",
-                    "bg-slate-300",
-                    "rounded",
-                    "font-semibold",
-                    "hover:bg-slate-400 hover:text-slate-100",
-                    "transition-all duration-300",
-                  )}
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={() => handleOrderDelete(order.id)}
-                  className={cn(
-                    "w-24 h-8",
-                    "bg-red-500",
-                    "rounded",
-                    "font-bold uppercase text-slate-100",
-                    "hover:bg-red-700",
-                    "transition-all duration-300",
-                  )}
-                >
-                  Delete
-                </button>
-              </div>
+            <p>
+              Are you sure you want to delete order{" "}
+              <span className="font-bold">{order.id}</span>?
+            </p>
+            <div className="flex gap-5">
+              <button
+                onClick={() => setIsModalOpen(!isModalOpen)}
+                className={cn(
+                  "w-24 h-8",
+                  "bg-slate-300",
+                  "rounded",
+                  "font-semibold",
+                  "hover:bg-slate-400 hover:text-slate-100",
+                  "transition-all duration-300",
+                )}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => handleOrderDelete(order.id)}
+                className={cn(
+                  "w-24 h-8",
+                  "bg-red-500",
+                  "rounded",
+                  "font-bold uppercase text-slate-100",
+                  "hover:bg-red-700",
+                  "transition-all duration-300",
+                )}
+              >
+                Delete
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

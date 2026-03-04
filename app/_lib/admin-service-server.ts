@@ -1,6 +1,7 @@
 import { createServerClientInstance } from "@/utils/supabase/server";
 import { OrderId } from "@/types/order.types";
 import { UserId } from "@/types/user.types";
+import { ProductId } from "@/types/product.types";
 
 export async function getOrdersServer() {
   const supabase = await createServerClientInstance();
@@ -94,4 +95,38 @@ export async function getAllProductsServer() {
   }
 
   return products;
+}
+
+export async function getProductDetailsServer(id: ProductId) {
+  const supabase = await createServerClientInstance();
+
+  let { data, error } = await supabase
+    .from("sneakers")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Product details could not be loaded");
+  }
+
+  return data;
+}
+
+/////////////////// GET TOTAL PRODUCTS //////////////////
+
+export async function getTotalProductsServer() {
+  const supabase = await createServerClientInstance();
+
+  let { data, error } = await supabase
+    .from("order_items")
+    .select("quantity, price_at_time, product_category");
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Products could not be loaded");
+  }
+
+  return data;
 }

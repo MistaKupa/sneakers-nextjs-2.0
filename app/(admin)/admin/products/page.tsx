@@ -21,7 +21,7 @@ export default async function Products({}) {
   });
 
   return (
-    <div>
+    <div className="">
       <HydrationBoundary state={dehydrate(queryClient)}>
         <ProductsTable />
       </HydrationBoundary>

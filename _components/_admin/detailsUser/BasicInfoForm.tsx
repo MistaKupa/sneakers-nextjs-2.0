@@ -62,10 +62,10 @@ export default function BasicInfoForm({
   return (
     <form
       onSubmit={handleSubmit(handleBasicInfoChange)}
-      className="flex flex-col gap-8 bg-slate-50 w-3/5 rounded drop-shadow"
+      className="flex flex-col gap-8 bg-slate-50 w-full h-screen lg:h-full xl:w-3/5 rounded drop-shadow"
     >
       {/* USER PICTURE*/}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full lg:h-full">
         <Image
           src={
             data.avatar_url
@@ -82,22 +82,22 @@ export default function BasicInfoForm({
       {/* BASIC INFO FORM */}
       <div
         className={cn(
-          "flex flex-col h-full justify-between px-10 pb-8",
+          "flex flex-col h-full justify-between lg:gap-8 px-8 lg:px-10 pb-8",
           isPending && "opacity-70 cursor-wait",
         )}
       >
         {/* DISPLAY NAME HEADER*/}
-        <div className="flex justify-between">
+        <div className="flex flex-col gap-3 lg:flex-row lg:justify-between lg:gap-0">
           <h1 className="font-bold text-xl">{data.display_name}</h1>
 
-          <span className="text-slate-400 font-light break-words text-right">
+          <span className="text-slate-400 font-light lg:break-words text-right">
             {userId}
           </span>
         </div>
 
         {/* DISPLAY NAME / PHONE*/}
         <div className="flex flex-col gap-12">
-          <div className="flex justify-between gap-16">
+          <div className="flex flex-col gap-8 xl:justify-between xl:gap-16">
             <div className="relative w-full">
               <input
                 type="text"

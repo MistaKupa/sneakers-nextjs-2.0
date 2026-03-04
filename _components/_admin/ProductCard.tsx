@@ -3,14 +3,8 @@
 import { cn } from "@/app/_lib/utils";
 import { Product, ProductId } from "@/types/product.types";
 import Image from "next/image";
-
 import Link from "next/link";
-import {
-  IoCopyOutline,
-  IoEyeOutline,
-  IoPencilOutline,
-  IoTrashOutline,
-} from "react-icons/io5";
+import { IoEyeOutline, IoPencilOutline, IoTrashOutline } from "react-icons/io5";
 
 export default function ProductCard({
   product,
@@ -22,57 +16,97 @@ export default function ProductCard({
   return (
     <div
       className={cn(
-        "h-28 px-10 py-2",
-        "grid grid-cols-[repeat(6,1fr)_6rem] gap-10 items-center",
-        "border-b-2 last:border-0",
+        "grid grid-cols-4 grid-rows-5 items-center gap-3 p-5 border-b-2 last:border-0",
+
+        "lg:h-28 lg:px-10 lg:py-2 lg:grid-cols-[repeat(6,1fr)_8rem] lg:grid-rows-1 lg:gap-6",
       )}
     >
-      <div className="relative w-1/2 h-full">
+      {/* Thumbnail */}
+      <div
+        className={cn(
+          "relative w-full h-full min-h-[100px] col-span-2 row-span-4 rounded-md overflow-hidden",
+          "lg:col-auto lg:row-auto lg:h-20 lg:w-20",
+        )}
+      >
         <Image
           src={product.images[0]}
-          alt="Sneaker thumbnail"
+          alt={product.title}
           fill
           className="object-cover"
         />
       </div>
-      <div>{product.id}</div>
-      <div className="min-w-0 flex" title={product.title}>
-        <span className="truncate">{product.title}</span>
+
+      <div className="text-xs text-slate-500 font-mono lg:text-sm lg:text-slate-900">
+        #{product.id}
       </div>
 
-      <div>
-        <span className="truncate">€{product.price.toFixed(2)}</span>
+      {/* Title */}
+      <div
+        className="row-start-2 col-start-3 col-span-2 min-w-0 lg:col-auto lg:row-auto"
+        title={product.title}
+      >
+        <h3 className="font-bold lg:font-medium truncate text-sm lg:text-base">
+          {product.title}
+        </h3>
       </div>
 
-      <div>
-        <span>{product.discount ? `${product.discount} %` : "—"}</span>
-      </div>
-      <div>
-        <span
-          className={cn(
-            "text-green-500",
-            product.stock <= 2 && "text-red-500",
-            product.stock > 2 && product.stock <= 5 && "text-amber-500",
-          )}
-        >
-          {product.stock}
+      {/* Price */}
+      <div className="row-start-3 col-start-3 lg:col-auto lg:row-auto">
+        <span className="font-semibold whitespace-nowrap">
+          €{product.price.toFixed(2)}
         </span>
       </div>
-      <div className="flex justify-between">
-        <Link
-          href={`/admin/products`}
-          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300"
+
+      {/* Discount */}
+      <div className="row-start-3 col-start-4 place-self-end lg:place-self-auto lg:col-auto lg:row-auto">
+        <span
+          className={cn(
+            "px-2 py-1 rounded text-xs font-bold",
+            product.discount ? "bg-green-100 text-green-700" : "text-slate-400",
+          )}
         >
-          <IoEyeOutline />
+          {product.discount ? `-${product.discount}%` : "—"}
+        </span>
+      </div>
+
+      {/* Stock */}
+      <div className="row-start-4 col-start-3 lg:col-auto lg:row-auto">
+        <div className="flex items-center gap-2">
+          <span
+            className={cn(
+              "w-2 h-2 rounded-full",
+              product.stock <= 2
+                ? "bg-red-500"
+                : product.stock <= 5
+                  ? "bg-amber-500"
+                  : "bg-green-500",
+            )}
+          />
+          <span className="text-sm">{product.stock} u</span>
+        </div>
+      </div>
+
+      {/* Actions */}
+      <div className="flex gap-2 row-start-5 col-span-2 lg:col-auto lg:row-auto lg:justify-end">
+        <Link
+          href={`/admin/products/${product.id}`}
+          className="p-1 bg-white border rounded shadow-sm hover:bg-slate-50 transition-colors"
+          title="Zobraziť"
+        >
+          <IoEyeOutline size={18} />
         </Link>
         <button
-          className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300 cursor-pointer"
+          className="p-1 bg-white border rounded shadow-sm hover:bg-slate-50 transition-colors cursor-pointer text-blue-600"
           onClick={() => onEdit(product.id)}
+          title="Upraviť"
         >
-          <IoPencilOutline />
+          <IoPencilOutline size={18} />
         </button>
-        <button className="bg-slate-100 p-1 drop-shadow-sm border hover:scale-105 transition-all duration-300">
-          <IoTrashOutline />
+        <button
+          className="p-1 bg-white border rounded shadow-sm hover:bg-slate-50 transition-colors text-red-500"
+          title="Vymazať"
+        >
+          <IoTrashOutline size={18} />
         </button>
       </div>
     </div>

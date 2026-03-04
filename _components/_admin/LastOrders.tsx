@@ -5,6 +5,8 @@ import { cn } from "@/app/_lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
 import OrderCardAdmin from "./OrderCardAdmin";
+import OrderCardMobile from "./OrderCardMobile";
+import React from "react";
 
 export default function LastOrders() {
   const { data, isPending, error } = useQuery({
@@ -19,9 +21,11 @@ export default function LastOrders() {
     >
       <h2
         className={cn(
-          "w-full py-5 px-10",
-          " border-b-4 border-b-white",
+          "w-full py-5 px-5",
+          "border-b-4 border-b-white",
           "font-semibold text-xl",
+
+          "xl:px-10",
         )}
       >
         Last Orders
@@ -29,13 +33,16 @@ export default function LastOrders() {
       <div className="w-full">
         <div
           className={cn(
-            "w-full py-5 px-10",
-            "grid grid-cols-[repeat(5,1fr)_4rem] gap-5",
+            "hidden",
+            "w-full p-5",
             "border-b-4 border-b-white",
             "font-medium bg-slate-100",
+
+            "lg:grid grid-cols-[repeat(5,1fr)_4rem] lg:gap-5",
+            "xl:px-10",
           )}
         >
-          <div>Order Number</div>
+          <div className="truncate">Order Number</div>
           <div>Date</div>
           <div>Price</div>
           <div>Email</div>
@@ -44,7 +51,14 @@ export default function LastOrders() {
         </div>
         <div className="grid grid-rows-[auto]">
           {data?.map((order) => (
-            <OrderCardAdmin key={order.id} order={order} />
+            <React.Fragment key={order.id}>
+              <div className="hidden lg:block">
+                <OrderCardAdmin order={order} />
+              </div>
+              <div className="block lg:hidden">
+                <OrderCardMobile order={order} />
+              </div>
+            </React.Fragment>
           ))}
         </div>
       </div>

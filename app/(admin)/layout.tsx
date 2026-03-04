@@ -2,7 +2,7 @@ import { Kumbh_Sans } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "@/app/global.css";
 import SideNav from "../../_components/_admin/SideNav";
-import ToolBar from "../../_components/_admin/ToolBar";
+import ToolBar from "../../_components/_admin/toolbar/ToolBar";
 import { cn } from "../_lib/utils";
 import QueryProvider from "../../_components/query-provider/QueryProvider";
 
@@ -25,28 +25,38 @@ export default function SignUpRootLayout({
       <body
         className={cn(
           `${kumbhSans.className} antialiased`,
-          "relative mx-auto h-screen",
-          "grid grid-cols-[16rem_1fr] grid-rows-[4rem_1fr]",
-          "[grid-template-areas:'sidebar_topbar''sidebar_main']",
+          "relative mx-auto h-full lg:h-screen",
           "text-dark-500",
           "bg-slate-100",
-          "overflow-hidden",
+          "grid",
+          "grid-rows-[3rem_4rem_1fr]",
+
+          "lg:grid-cols-[11rem_1fr] lg:grid-rows-[4rem_1fr]",
+          "lg:[grid-template-areas:'sidebar_topbar''sidebar_main']",
+          "lg:overflow-hidden",
+
+          "xl:grid-cols-[16rem_1fr] xl:grid-rows-[4rem_1fr]",
         )}
       >
         <div
           className={cn(
-            "[grid-area:topbar]",
             "relative z-10",
             "bg-slate-50 drop-shadow",
+            "lg:[grid-area:topbar]",
           )}
         >
           <ToolBar />
         </div>
-        <div className={cn("[grid-area:sidebar]", "h-full")}>
+        <div className={cn("lg:[grid-area:sidebar]", "h-full")}>
           <SideNav />
         </div>
         <main
-          className={cn("[grid-area:main]", "w-full p-20", "overflow-y-auto")}
+          className={cn(
+            "relative w-full h-full px-5 py-20",
+            "lg:[grid-area:main]",
+            "lg:p-20",
+            "overflow-y-auto",
+          )}
         >
           <QueryProvider>{children}</QueryProvider>
         </main>
