@@ -21,7 +21,7 @@ export default function ProductDetails({
   });
 
   return (
-    <div className="w-full grid gap-5 lg:grid-cols-2">
+    <div className="w-full grid gap-5 xl:grid-cols-2">
       <div className="bg-slate-50 p-10 drop-shadow rounded-md">
         <ProductImage product={product} />
       </div>

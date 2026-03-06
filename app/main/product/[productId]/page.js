@@ -17,7 +17,7 @@ export default async function Page({ params }) {
   const { images } = product;
 
   return (
-    <div className="flex flex-col gap-14 px-5 md:gap-20 lg:grid lg:grid-cols-2 lg:gap-20">
+    <div className="flex flex-col gap-14 px-5 md:gap-20 lg:grid lg:grid-cols-2 lg:gap-20 lg:px-10 xl:px-5">
       <ProductImage product={product} />
       <ProductDescription product={product} sneakerSizes={sneakerSizes} />
     </div>

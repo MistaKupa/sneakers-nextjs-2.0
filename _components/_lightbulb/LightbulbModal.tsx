@@ -5,29 +5,40 @@ import { IoChevronBack, IoChevronForward, IoCloseSharp } from "react-icons/io5";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { cn } from "@/app/_lib/utils";
 
 function LightbulbModal({
+  isOpen,
+  onClose,
   productImages,
-  setIsOpen,
   setActiveIndex,
   activeIndex,
 }) {
-  const modalRef = useRef();
+  const modalRef = useRef(null);
+
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        setIsOpen(false);
+    setIsMounted(true);
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.addEventListener("mousedown", handleClickOutside);
+    }
 
     return () => {
+      document.body.style.overflow = "unset";
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [setIsOpen]);
+  }, [isOpen, modalRef]);
 
   const nextImage = () => {
     if (activeIndex === productImages.length - 1) {
@@ -45,19 +56,31 @@ function LightbulbModal({
     }
   };
 
-  return (
-    <>
+  if (!isMounted || !isOpen) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+      {/* BACKDROP */}
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+
       <div
         ref={modalRef}
-        className="w-11/12 md:w-3/4 lg:w-2/4 xl:w-1/3 xl:h-1/3 fixed top-48 md:top-14 left-[50%] translate-x-[-50%] flex flex-col gap-5"
+        className={cn(
+          "w-11/12",
+          "fixed top-48 left-[50%] translate-x-[-50%]",
+          "flex flex-col gap-5",
+          "md:w-3/4 md:top-14",
+          "lg:w-2/4 ",
+          "xl:w-1/3 xl:h-1/3",
+        )}
       >
         <motion.button
           whileHover={{ scale: 1.3 }}
           transition={{ duration: 0.15 }}
           className="place-self-end text-newWhite hover:text-dark-300 transition-all duration-300 cursor-pointer"
-          onClick={() => setIsOpen(false)}
+          onClick={onClose}
         >
-          <IoCloseSharp size={25} />
+          <IoCloseSharp size={30} />
         </motion.button>
         {/*MAIN IMAGE CONTAINER*/}
         <div className="relative rounded-lg aspect-square">
@@ -83,14 +106,26 @@ function LightbulbModal({
           {/*NAVIGATION BUTTONS*/}
           <button
             onClick={prevImage}
-            className="absolute top-[50%] translate-y-[-50%] -left-2.5 md:-left-6 bg-dark-100 rounded-full p-0.5 md:p-3 text-dark-500 hover:text-newPrimary"
+            className={cn(
+              "absolute top-[50%] translate-y-[-50%] -left-2.5",
+              "p-0.5 rounded-full",
+              "text-dark-500 bg-dark-100",
+              "md:-left-6 md:p-3",
+              "hover:text-newPrimary",
+            )}
           >
             <IoChevronBack size={25} className="" />
           </button>
 
           <button
             onClick={nextImage}
-            className="absolute top-[50%] translate-y-[-50%] -right-2.5 md:-right-6 bg-dark-100 rounded-full p-0.5 md:p-3 text-dark-500 hover:text-newPrimary"
+            className={cn(
+              "absolute top-[50%] translate-y-[-50%] -right-2.5",
+              "p-0.5 rounded-full",
+              "text-dark-500 bg-dark-100",
+              "md:-right-6 md:p-3",
+              "hover:text-newPrimary",
+            )}
           >
             <IoChevronForward size={25} className="" />
           </button>
@@ -118,7 +153,8 @@ function LightbulbModal({
           ))}
         </div>
       </div>
-    </>
+    </div>,
+    document.body,
   );
 }
 

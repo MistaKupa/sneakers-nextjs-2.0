@@ -138,6 +138,12 @@ export async function updateUserClient({
   }
 }
 
+// export async function deleteUserClient(userId: UserId) {
+//   const supabase = createClientInstance();
+
+//   const { error } = await supabase.from("profiles").delete().eq("");
+// }
+
 /////////////////// PRODUCTS //////////////////
 
 export async function getAllProductsClient() {
@@ -190,6 +196,17 @@ export async function updateProduct({
   if (error) {
     console.error(error.message);
     throw new Error("Product could not be updated!");
+  }
+}
+
+export async function deleteProductClient(id: ProductId) {
+  const supabase = createClientInstance();
+
+  const { error } = await supabase.from("sneakers").delete().eq("id", id);
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Product could not be deleted");
   }
 }
 

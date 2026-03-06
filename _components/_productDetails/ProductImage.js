@@ -30,7 +30,7 @@ function ProductImage({ product }) {
         </motion.div>
 
         {/* SECONDARY IMAGES */}
-        <div className="flex flex-wrap items-center justify-center gap-4 lg:flex-nowrap">
+        <div className="flex flex-wrap items-center justify-center gap-4 ">
           {product.images.map((image, i) => (
             <motion.div
               initial={{ opacity: 0, x: -200 }}
@@ -58,29 +58,13 @@ function ProductImage({ product }) {
 
       {/* LIGHTBULB IMAGE MODAL */}
       <AnimatePresence mode="wait">
-        {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-10 bg-lightBox "
-            ></motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed top-[50%] left-[50%] z-20"
-            >
-              <LightbulbModal
-                productImages={product.images}
-                setIsOpen={setIsOpen}
-                activeIndex={activeIndex}
-                setActiveIndex={setActiveIndex}
-              />
-            </motion.div>
-          </>
-        )}
+        <LightbulbModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          productImages={product.images}
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+        />
       </AnimatePresence>
     </>
   );

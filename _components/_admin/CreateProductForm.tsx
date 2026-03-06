@@ -229,7 +229,7 @@ export default function CreateProductForm() {
         className="bg-gradient-to-r from-newPrimary to-newPrimaryGradient px-10 py-1.5 rounded-full font-semibold text-slate-50 disabled:cursor-not-allowed"
         disabled={!isDirty}
       >
-        Create
+        {isPending ? "Creating..." : "Create"}
       </button>
     </form>
   );

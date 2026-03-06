@@ -2,13 +2,12 @@
 
 import { getAllProductsClient } from "@/app/_lib/admin-service-client";
 import { cn } from "@/app/_lib/utils";
+import { ProductId } from "@/types/product.types";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import CreateProductModal from "./adminModals/CreateProductModal";
 import ProductCard from "./ProductCard";
 import ProductCardForm from "./ProductCardForm";
-import { useState } from "react";
-import { ProductId } from "@/types/product.types";
-import CreateProductForm from "./CreateProductForm";
-import { IoCloseOutline } from "react-icons/io5";
 
 export default function ProductsTable() {
   const { data, isPending, error } = useQuery({
@@ -84,30 +83,7 @@ export default function ProductsTable() {
         </div>
       </div>
 
-      {isOpen && (
-        <>
-          <div className="absolute inset-0 bg-black/50 z-10" />
-
-          <div
-            className={cn(
-              "absolute top-20 left-[50%] -translate-x-[50%] z-20",
-              "w-1/2 h-5/6 py-10 px-28",
-              "flex flex-col gap-10",
-              "bg-slate-50",
-              "rounded",
-              "overflow-auto",
-            )}
-          >
-            <div className={cn("relative", "flex justify-between")}>
-              <h1 className="font-bold text-xl">Create New Product</h1>
-              <button onClick={() => setIsOpen(false)}>
-                <IoCloseOutline size={30} />
-              </button>
-            </div>
-            <CreateProductForm />
-          </div>
-        </>
-      )}
+      <CreateProductModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 }

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function OrderItemsCard({ orderItems, totalPrice }) {
-  console.log("order items:", orderItems);
   return (
     <>
       <div className="w-full flex flex-col gap-5">

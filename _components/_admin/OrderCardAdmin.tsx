@@ -19,6 +19,7 @@ import {
   IoPencilOutline,
   IoTrashOutline,
 } from "react-icons/io5";
+import ConfirmDeleteModal from "./adminModals/ConfirmDeleteModal";
 
 export default function OrderCardAdmin({ order }) {
   const queryClient = useQueryClient();
@@ -201,59 +202,14 @@ export default function OrderCardAdmin({ order }) {
           </button>
         </div>
       </div>
-
-      {isModalOpen && (
-        <div
-          className={cn(
-            "fixed inset-0 z-50",
-            "flex items-center justify-center",
-            "bg-black/50",
-          )}
-        >
-          <div
-            className={cn(
-              "",
-              "w-96 h-36 p-5",
-              "flex flex-col justify-between items-center",
-              "bg-slate-100 shadow-sm",
-              "rounded",
-            )}
-          >
-            <p>
-              Are you sure you want to delete order{" "}
-              <span className="font-bold">{order.id}</span>?
-            </p>
-            <div className="flex gap-5">
-              <button
-                onClick={() => setIsModalOpen(!isModalOpen)}
-                className={cn(
-                  "w-24 h-8",
-                  "bg-slate-300",
-                  "rounded",
-                  "font-semibold",
-                  "hover:bg-slate-400 hover:text-slate-100",
-                  "transition-all duration-300",
-                )}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => handleOrderDelete(order.id)}
-                className={cn(
-                  "w-24 h-8",
-                  "bg-red-500",
-                  "rounded",
-                  "font-bold uppercase text-slate-100",
-                  "hover:bg-red-700",
-                  "transition-all duration-300",
-                )}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ConfirmDeleteModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={() => handleOrderDelete(order.id)}
+        id={order.id}
+        message="Are you sure you want to delete order"
+        isPending={deletingOrder}
+      />
     </>
   );
 }
