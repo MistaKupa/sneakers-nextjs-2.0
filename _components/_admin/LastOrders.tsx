@@ -14,6 +14,17 @@ export default function LastOrders() {
     queryFn: getOrdersClient,
   });
 
+  if (isPending) {
+    return <p className="text-gray-400">Fetching products...</p>;
+  }
+
+  if (error)
+    return (
+      <div className="flex items-center justify-center text-red-500">
+        Failed to load data.
+      </div>
+    );
+
   return (
     <motion.div
       layoutId="last-orders"

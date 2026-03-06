@@ -19,6 +19,17 @@ export default function DetailsUser({ userId }: { userId: UserId }) {
     queryFn: () => getUserDetailsClient(userId),
   });
 
+  if (isPending) {
+    return <p className="text-gray-400">Fetching products...</p>;
+  }
+
+  if (error)
+    return (
+      <div className="flex items-center justify-center text-red-500">
+        Failed to load data.
+      </div>
+    );
+
   const formatedDate = format(new Date(userData.created_at), "dd/MM/yyyy");
 
   return (

@@ -6,7 +6,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 
-export default async function Products({}) {
+export default async function Products() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {

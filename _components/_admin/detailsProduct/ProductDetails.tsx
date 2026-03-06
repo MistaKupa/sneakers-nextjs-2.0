@@ -20,6 +20,17 @@ export default function ProductDetails({
     queryFn: () => getProductDetailsClient(productId),
   });
 
+  if (isPending) {
+    return <p className="text-gray-400">Fetching products...</p>;
+  }
+
+  if (error)
+    return (
+      <div className="flex items-center justify-center text-red-500">
+        Failed to load data.
+      </div>
+    );
+
   return (
     <div className="w-full grid gap-5 xl:grid-cols-2">
       <div className="bg-slate-50 p-10 drop-shadow rounded-md">

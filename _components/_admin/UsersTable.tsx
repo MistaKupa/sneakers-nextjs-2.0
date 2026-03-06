@@ -11,6 +11,17 @@ export default function UsersTable() {
     queryFn: getUsersClient,
   });
 
+  if (isPending) {
+    return <p className="text-gray-400">Fetching products...</p>;
+  }
+
+  if (error)
+    return (
+      <div className="flex items-center justify-center text-red-500">
+        Failed to load data.
+      </div>
+    );
+
   return (
     <div className="bg-slate-50 drop-shadow rounded-sm">
       <h2

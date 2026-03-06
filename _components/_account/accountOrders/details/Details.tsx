@@ -14,7 +14,16 @@ export default function Details({ orderId }: { orderId: OrderId }) {
     queryFn: () => getOrderDetailsClient(orderId),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) {
+    return <p className="text-gray-400">Fetching products...</p>;
+  }
+
+  if (error)
+    return (
+      <div className="flex items-center justify-center text-red-500">
+        Failed to load data.
+      </div>
+    );
 
   const { orderDetails, orderItems } = data;
 

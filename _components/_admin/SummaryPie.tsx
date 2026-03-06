@@ -11,6 +11,21 @@ export default function SummaryPie() {
     queryFn: getTotalProductsClient,
   });
 
+  if (isPending) {
+    return (
+      <div className="h-[400px] w-full bg-gray-100 animate-pulse rounded-xl flex items-center justify-center">
+        <p className="text-gray-400">Preparing charts...</p>
+      </div>
+    );
+  }
+
+  if (error)
+    return (
+      <div className="h-[400px] flex items-center justify-center text-red-500">
+        Failed to load sales data.
+      </div>
+    );
+
   const pieByCategory = data.reduce(
     (acc, product) => {
       const cat = product.product_category;
