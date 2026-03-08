@@ -1,52 +1,140 @@
-# 👟 SneakPeak – Full-Stack E-commerce Experience
+# 👟 SneakPeak – E-commerce Web Application
 
-Built as a deep-dive into the **Next.js 15 ecosystem**, this project evolved from a simple Frontend Mentor challenge into a functional e-commerce platform. It integrates modern web standards for payments, database management, and interactive data visualization.
+A modern e-commerce web application focused on sneakers, built with the Next.js ecosystem.  
+The project started as a Frontend Mentor challenge and gradually evolved into a more complete application with authentication, checkout flow, and an admin dashboard.
 
-[🌐 Live Demo](https://sneakers-nextjs-2-0.vercel.app) | [📁 Repository](https://github.com/MistaKupa/sneakers-nextjs-2.0)
+🌐 Live Demo: https://sneakers-nextjs-2-0.vercel.app  
+📁 Repository: https://github.com/MistaKupa/sneakers-nextjs-2.0
 
 ## 📸 Preview
 
-| Home Page                       | Admin Dashboard                            |
-| ------------------------------- | ------------------------------------------ |
-| ![Home Page](./assets/home.png) | ![Admin Dashboard](./assets/dashboard.png) |
+| Home Page                  | Admin Dashboard                      |
+| -------------------------- | ------------------------------------ |
+| ![Home](./assets/home.png) | ![Dashboard](./assets/dashboard.png) |
 
-## 🎯 Project Purpose & Origin
+| Products                           | Product Details                          |
+| ---------------------------------- | ---------------------------------------- |
+| ![Products](./assets/products.png) | ![Product](./assets/product-details.png) |
 
-Inspired by a Frontend Mentor challenge, I pushed the boundaries of the initial "Product Page" task by implementing a full checkout flow, user authentication, and a comprehensive Admin Dashboard. This project served as a rigorous training ground for React 19 features and server-side logic.
+## 🎯 Project Background
+
+The project was originally based on a **Frontend Mentor "Product Page" challenge**.  
+Instead of stopping at the original task, I expanded the project into a more complete e-commerce style application.
+
+The goal was to practice:
+
+- modern React architecture
+- Next.js App Router
+- authentication
+- payment flow
+- working with a database
+- building a small admin interface
 
 ## 🛠 Tech Stack
 
-- **Framework:** Next.js 15 (App Router, Server Actions)
-- **Frontend:** React 19, Tailwind CSS, Lucide Icons
-- **State & Data:** TanStack Query (v5), Context API
-- **Backend-as-a-Service:** Supabase (PostgreSQL, Auth, SSR Support)
-- **Payments:** Stripe (Payment Intents API)
-- **Visualization & Motion:** ECharts (Sales Analytics), GSAP & Framer Motion (UI/UX)
+**Framework**
 
-## ✨ Key Technical Implementations
+- Next.js (App Router)
 
-### 📊 Admin Dashboard (Analytics)
+**Frontend**
 
-- Data-driven dashboard using **ECharts** to track sales by category.
-- Implemented **Defensive Programming** patterns to handle asynchronous data states, preventing build-time errors and improving UX.
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- GSAP
 
-### 💳 Secure Payment Flow
+**State & Data**
 
-- Integrated **Stripe Elements** for a secure, PCI-compliant checkout.
-- Developed a custom order management system that syncs frontend cart state with Supabase records upon successful payment.
+- TanStack Query
+- React Context
 
-### 🔐 Modern Authentication
+**Backend / Database**
 
-- Implemented **Supabase SSR** for persistent user sessions, ensuring protected routes (Admin/User) remain secure on both client and server.
+- Supabase (PostgreSQL + Auth)
 
-## 📈 Developmental Roadmap (Learning Goals)
+**Payments**
 
-As a dedicated self-taught developer, I treat my projects as living organisms. My next steps for this application are:
+- Stripe
 
-- **Webhook Integration:** Moving payment confirmation to server-to-server Webhooks to ensure 100% data integrity.
-- **Unit Testing:** Implementing Jest for critical utility functions.
-- **Performance:** Fine-tuning Image optimization and Core Web Vitals for better SEO.
+**Data Visualization**
 
-## 📍 About Me
+- ECharts
 
-Self-taught developer with a passion for building clean, performant web applications. Completed advanced certifications by **Jonas Schmedtmann**. Currently looking for opportunities to contribute to professional teams in **Slovakia (Remote/Hybrid)** or the **Austrian tech market (Linz/Vienna)**.
+## ✨ Features
+
+- Product catalog
+- Dynamic product pages
+- Shopping cart
+- User authentication (login / signup)
+- Stripe checkout flow
+- Admin dashboard
+- Sales analytics dashboard
+- Responsive design
+- UI animations
+
+## 🔐 Admin Access
+
+This project includes a simple admin dashboard.
+
+To access it use the following credentials:
+
+Email: admin@sneakers.com  
+Password: admin123
+
+Admin routes:
+
+/admin/dashboard  
+/admin/products
+
+⚠️ Note:  
+Please avoid deleting core products because it may affect order records in the database.  
+For testing you can create or delete test products.
+
+## 💡 Key Implementations
+
+### Admin Dashboard
+
+The admin dashboard visualizes sales data using **ECharts** and displays product analytics.
+
+### Authentication
+
+Authentication is handled by **Supabase**, providing persistent sessions and protected routes.
+
+### Checkout
+
+Payments are implemented using **Stripe Elements** and connected to the database to store orders after successful payment.
+
+## 📚 What I Learned
+
+Through this project I improved my skills in:
+
+- structuring larger React / Next.js projects
+- working with server-side features
+- integrating third-party services (Stripe, Supabase)
+- building responsive UI with Tailwind
+- managing application state
+
+## 🚀 Future Improvements
+
+Planned improvements:
+
+- error & loading states
+- Stripe webhook integration
+- unit testing
+- performance optimization
+- improved product management
+
+This project is actively maintained and will continue to evolve as I deepen my knowledge of modern web development.
+
+Currently transitioning parts of the project to TypeScript
+as part of my learning process.
+
+## 👨‍💻 About Me
+
+Self-taught frontend developer focused on building modern web applications with **React and Next.js**.
+
+Currently looking for **junior frontend opportunities** in:
+
+- Slovakia (- on-site hybrid / remote)
+- Austria (Linz / Vienna – on-site or hybrid / remote)
