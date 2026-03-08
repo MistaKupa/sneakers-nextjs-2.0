@@ -119,6 +119,7 @@ Through this project I improved my skills in:
 
 Planned improvements:
 
+- implement collections page and in navigation (removed for now)
 - error & loading states
 - Stripe webhook integration
 - unit testing

@@ -11,6 +11,7 @@ export default function CollectionSection({ collections }) {
   return (
     <section
       ref={collectionSectionRef}
+      id="collections"
       className="white-section relative w-full min-h-screen xl:h-screen bg-white z-20 py-24 px-5 md:px-16 xl:px-16 xl:py-0"
     >
       <div className="max-w-[1440px] h-full flex flex-col justify-center gap-16  mx-auto">

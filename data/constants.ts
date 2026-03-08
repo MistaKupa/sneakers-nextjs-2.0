@@ -7,7 +7,7 @@ import {
 import { TfiPackage } from "react-icons/tfi";
 
 const navLinks = [
-  { href: "/main/site/collections", label: "Collections" },
+  // { href: "#collections", label: "Collections" },
   { href: "/main/site/men", label: "Men" },
   { href: "/main/site/women", label: "Women" },
   { href: "/main/site/about", label: "About" },
