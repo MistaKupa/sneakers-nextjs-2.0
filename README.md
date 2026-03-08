@@ -79,12 +79,14 @@ This project includes a simple admin dashboard.
 
 To access it use the following credentials:
 
-Email: admin@sneakers.com  
+Email: admin@admin.com
 Password: admin123
 
 Admin routes:
 
-/admin/dashboard  
+/admin/dashboard
+/admin/orders
+/admin/users
 /admin/products
 
 ⚠️ Note:  
