@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Header from "../../_components/_header/Header";
 import SmoothScrollProvider from "../../_components/_smoothProvider/SmoothScrollProvider";
 import { CartProvider } from "../_context/CartContext";
+import QueryProvider from "@/_components/query-provider/QueryProvider";
 
 const kumbhSans = Kumbh_Sans({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
         <CartProvider>
           <Header />
           <SmoothScrollProvider>
-            <main className="w-full min-h-screen">{children}</main>
+            <main className="w-full min-h-screen">
+              <QueryProvider>{children}</QueryProvider>
+            </main>
             <Footer />
           </SmoothScrollProvider>
         </CartProvider>

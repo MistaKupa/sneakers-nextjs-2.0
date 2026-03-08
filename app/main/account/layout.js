@@ -1,7 +1,6 @@
 import AccountMenu from "@/_components/_account/accountMenu/AccountMenu";
 import AccountSideBar from "@/_components/_account/accountSideBar/AccountSideBar";
-import OrdersLegend from "@/_components/_account/accountSideBar/ordersLegend/OrdersLegend";
-import UserDetails from "@/_components/_account/accountSideBar/userDetails/UserDetails";
+import QueryProvider from "@/_components/query-provider/QueryProvider";
 import Image from "next/image";
 
 export default function AccountLayout({ children }) {
