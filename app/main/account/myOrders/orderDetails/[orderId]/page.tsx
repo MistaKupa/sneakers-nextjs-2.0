@@ -44,7 +44,7 @@ export default async function OrderDetails({
           <IoArrowBack size={30} className="text-newPrimary" />
         </Link>
         <h2 className="text-3xl font-light">
-          Order <span className="font-semibold">{routeParams.orderId}</span>
+          Order <span className="font-semibold">{orderId}</span>
         </h2>
       </div>
 
