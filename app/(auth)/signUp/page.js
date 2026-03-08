@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { signUpUser } from "../_lib/account-service";
+import { signUpUser } from "../../_lib/account-service";
 
-import VerifyAccount from "../../_components/verifyAccount/VerifyAccount";
+import VerifyAccount from "../../../_components/verifyAccount/VerifyAccount";
 
 export default function SignUp() {
   const {
@@ -47,7 +47,7 @@ export default function SignUp() {
         initial={{ rotate: -12 }}
         animate={{ rotate: -12 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="absolute top-[40rem] -right-24 w-[2200px] h-[500px] -z-10"
+        className="absolute top-[40rem] -right-24 w-[2200px] h-[550px] -z-10"
       >
         <Image
           src="/images/bg-main-desktop-horizontal.png"

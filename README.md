@@ -80,7 +80,7 @@ This project includes a simple admin dashboard.
 To access it use the following credentials:
 
 Email: admin@admin.com
-Password: admin123
+Password: pas123456789 (1 to 9)
 
 Admin routes:
 
