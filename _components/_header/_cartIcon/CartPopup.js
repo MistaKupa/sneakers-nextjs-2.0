@@ -8,13 +8,9 @@ function CartPopup({ isOpen, openPopup, closePopup }) {
 
   return (
     <div
-      className={`absolute top-10 -right-12 md:-right-16 lg:-right-24 min-w-72 md:min-w-96 m-0 rounded-xl flex items-center pt-5  shadow-xl z-30 ${
-        isOpen ? "block" : "hidden"
-      }`}
-      onMouseEnter={openPopup}
-      onMouseLeave={closePopup}
+      className={`min-w-72 md:min-w-96 m-0 rounded-xl flex items-center pt-5 shadow-xl z-30`}
     >
-      <div className="flex flex-col gap-7 bg-dark-100 w-full rounded-xl shadow-2xl ">
+      <div className="flex flex-col gap-7 bg-dark-100 w-full rounded-xl shadow-2xl border">
         <div className="flex items-center border-b p-6">
           <h4 className="text-dark-500 text-lg font-bold">Cart</h4>
         </div>

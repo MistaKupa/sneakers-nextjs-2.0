@@ -1,5 +1,0 @@
-import Header from "@/_components/_header/Header";
-
-export default function SiteLayout({ children }) {
-  return <main className="w-full mx-auto">{children}</main>;
-}

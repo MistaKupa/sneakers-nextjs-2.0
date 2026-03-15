@@ -5,9 +5,18 @@ import { IoChevronBack, IoChevronForward, IoCloseSharp } from "react-icons/io5";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import { cn } from "@/app/_lib/utils";
+import { ProductImages } from "@/types/product.types";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
+interface LightBulbModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  productImages: ProductImages;
+  setActiveIndex: Dispatch<SetStateAction<number>>;
+  activeIndex: number;
+}
 
 function LightbulbModal({
   isOpen,
@@ -15,7 +24,7 @@ function LightbulbModal({
   productImages,
   setActiveIndex,
   activeIndex,
-}) {
+}: LightBulbModalProps) {
   const modalRef = useRef(null);
 
   const [isMounted, setIsMounted] = useState(false);
@@ -38,7 +47,7 @@ function LightbulbModal({
       document.body.style.overflow = "unset";
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, modalRef]);
+  }, [isOpen, onClose, modalRef]);
 
   const nextImage = () => {
     if (activeIndex === productImages.length - 1) {
@@ -134,7 +143,7 @@ function LightbulbModal({
         <div className="w-full items-center justify-around flex rounded-lg">
           {productImages.map((productImage, i) => (
             <div
-              key={i}
+              key={productImage}
               className={`max-w-36 flex items-center justify-center cursor-pointer rounded-lg ${
                 activeIndex === i
                   ? "border-2 border-newPrimary"

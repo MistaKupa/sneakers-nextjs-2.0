@@ -43,7 +43,7 @@ export default function ConfirmDeleteModal({
       document.body.style.overflow = "unset";
       document.removeEventListener("mousedown", handeClickOutside);
     };
-  }, [isOpen, modalRef]);
+  }, [isOpen, onClose, modalRef]);
 
   if (!isMounted || !isOpen) return null;
 

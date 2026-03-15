@@ -1,0 +1,31 @@
+import AccountMenu from "@/_components/_account/accountMenu/AccountMenu";
+import AccountSideBar from "@/_components/_account/accountSideBar/AccountSideBar";
+import QueryProvider from "@/_components/query-provider/QueryProvider";
+import Image from "next/image";
+import { ReactNode } from "react";
+
+export default function AccountLayout({ children }: { children: ReactNode }) {
+  return (
+    <main className="w-full mt-28 pb-28">
+      <div className="w-full h-28">
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/bg-main-desktop-horizontal.png"
+            alt="bg-image"
+            fill
+            className=""
+          />
+        </div>
+      </div>
+      <section className="relative mx-auto px-4 py-14 max-w-[1440px]">
+        <AccountMenu />
+        <div className="w-full lg:grid lg:grid-cols-[1fr_2.5fr]">
+          <div className="hidden lg:block">
+            <AccountSideBar />
+          </div>
+          {children}
+        </div>
+      </section>
+    </main>
+  );
+}

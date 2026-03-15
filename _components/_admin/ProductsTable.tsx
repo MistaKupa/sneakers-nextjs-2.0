@@ -15,6 +15,9 @@ export default function ProductsTable() {
     queryFn: getAllProductsClient,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [editingId, setEditingId] = useState<ProductId | null>(null);
+
   if (isPending) {
     return <p className="text-gray-400">Fetching products...</p>;
   }
@@ -25,9 +28,6 @@ export default function ProductsTable() {
         Failed to load data.
       </div>
     );
-
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [editingId, setEditingId] = useState<ProductId | null>(null);
 
   const handleOpenEdit = (id: ProductId) => {
     setEditingId(id);

@@ -4,10 +4,15 @@ import { IoCloseOutline } from "react-icons/io5";
 import { cn } from "@/app/_lib/utils";
 import { useEffect, useRef, useState } from "react";
 
+interface CreateProductModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 export default function CreateProductModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
 
-  const [isMounted, setIsMounted] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -27,7 +32,7 @@ export default function CreateProductModal({ isOpen, onClose }) {
       document.body.style.overflow = "unset";
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, modalRef]);
+  }, [isOpen, onClose, modalRef]);
 
   if (!isMounted || !isOpen) return null;
 

@@ -24,7 +24,7 @@ function Cart({}) {
 
   return (
     <div
-      className="relative h-full"
+      className="relative h-full group"
       onMouseEnter={openPopup}
       onMouseLeave={closePopup}
     >
@@ -44,11 +44,13 @@ function Cart({}) {
           {totalItems}
         </span>
 
-        <CartPopup
-          isOpen={isOpen}
-          openPopup={openPopup}
-          closePopup={closePopup}
-        />
+        <div className="absolute top-5 -right-12 md:-right-16 lg:-right-24 hidden group-hover:block">
+          <CartPopup
+            isOpen={isOpen}
+            openPopup={openPopup}
+            closePopup={closePopup}
+          />
+        </div>
       </div>
     </div>
   );
