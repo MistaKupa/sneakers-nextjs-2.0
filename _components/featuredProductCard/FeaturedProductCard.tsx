@@ -13,7 +13,6 @@ function FeaturedProductCard({
   products: ProductDetailsPublic[];
 }) {
   const { id, title, price, discount, images } = products[0];
-  const { product, quantity, selectedSize, addToCart } = useCart();
 
   return (
     <div className="bannerProduct bg-white bg-opacity-75 flex flex-col justify-between w-full h-96 lg:grid lg:grid-cols-3 md:w-96 lg:w-[30rem] lg:h-60 p-2 rounded-md">
