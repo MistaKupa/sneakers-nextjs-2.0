@@ -5,7 +5,7 @@ import { IoArrowForward } from "react-icons/io5";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-function VerifyAccount({ email }) {
+function VerifyAccount({ email }: { email: string }) {
   const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
   return (
     <div className="flex flex-col items-center justify-center gap-5 p-5">

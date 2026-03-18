@@ -21,8 +21,8 @@ export default function MiniProductCard() {
         return (
           <div
             key={i}
-            exit={{ opacity: 0, x: 150 }}
-            transition={{ duration: 500, delay: 1 }}
+            // exit={{ opacity: 0, x: 150 }}
+            // transition={{ duration: 500, delay: 1 }}
             className="flex items-center gap-5 px-6 "
           >
             <div className="rounded-md">

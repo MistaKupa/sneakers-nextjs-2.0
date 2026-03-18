@@ -101,7 +101,7 @@ const MapComponent = () => {
 
 export default function MapPage() {
   return (
-    <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+    <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
       <div className="w-full h-full">
         <MapComponent />
       </div>

@@ -30,11 +30,11 @@ export default function ProfileInformationForm({
   const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const success = await updateProfileInfo(
+    const success = await updateProfileInfo({
       newBirthDate,
       newGender,
       newDisplayName,
-    );
+    });
 
     if (success) {
       setNewDisplayName(newDisplayName);

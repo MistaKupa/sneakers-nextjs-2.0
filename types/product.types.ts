@@ -7,6 +7,8 @@ export type ProductDetailsPublic = Omit<
   Product,
   "category" | "collection" | "tags" | "stock" | "created_at" | "availability"
 >;
+export type ProductPriceDetails = Pick<Product, "price" | "discount">;
+
 export type ProductImages = Product["images"];
 
 /////////////////////// SIZES //////////////////////////

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import ProductCard from "./ProductCard";
 import { ProductDetailsPublic, SortOptions } from "@/types/product.types";
+import { ChangeEvent } from "react";
 
 interface ProductsPageProps {
   products: ProductDetailsPublic[];
@@ -20,13 +21,13 @@ export default function Products({
 }: ProductsPageProps) {
   const router = useRouter();
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     const params = new URLSearchParams(window.location.search);
-    params.set("page", page);
+    params.set("page", String(page));
     router.push(`?${params.toString()}`);
   };
 
-  const handleSortChange = (e) => {
+  const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const params = new URLSearchParams(window.location.search);
     params.set("sortBy", e.target.value);
     params.set("page", "1"); // reset to first page on sort change

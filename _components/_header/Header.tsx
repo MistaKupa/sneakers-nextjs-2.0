@@ -12,6 +12,7 @@ import LogoWhite from "./_navigation/LogoWhite";
 import Navigation from "./_navigation/Navigation";
 import UserAvatar from "./_userAvatar/UserAvatar";
 import LogoBlack from "./_navigation/LogoBlack";
+import { MenuState } from "@/types/menu.types";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -22,9 +23,9 @@ export default function Header({}) {
   const logoBlackRef = useRef(null);
   const pathname = usePathname();
 
-  const [openMenu, setOpenMenu] = useState(null);
+  const [openMenu, setOpenMenu] = useState<MenuState>(null);
 
-  const [hidden, setHidden] = useState();
+  const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
 
   const isLandingPage = pathname === "/main";
@@ -63,7 +64,7 @@ export default function Header({}) {
         return;
       }
 
-      const sections = gsap.utils.toArray(
+      const sections = gsap.utils.toArray<HTMLElement>(
         document.querySelectorAll(`[class*=-section]`),
       );
 
@@ -81,7 +82,7 @@ export default function Header({}) {
         });
       });
 
-      function updateTheme(isWhite, colorClass) {
+      function updateTheme(isWhite: boolean, colorClass: string) {
         setCurrentTextColorClass(colorClass);
 
         gsap.to(logoBlackRef.current, {

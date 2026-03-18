@@ -8,11 +8,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import FeaturedProductCard from "../../featuredProductCard/FeaturedProductCard";
-import useSectionColorChange from "@/hooks/useSectionColorChange";
+import { Product } from "@/types/product.types";
 
 gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
-export default function KidStylesSection({ kidStyles }) {
+export default function KidStylesSection({
+  kidStyles,
+}: {
+  kidStyles: Product[];
+}) {
   const kidStylesContainerRef = useRef(null);
   const kidStylesBackgroundRef = useRef(null);
   const kidStylesContentContainerRef = useRef(null);
@@ -56,15 +60,15 @@ export default function KidStylesSection({ kidStyles }) {
         .fromTo(
           kidStylesContentContainer,
           { scale: 0.8, y: 50 },
-          { scale: 1, y: 0 }
+          { scale: 1, y: 0 },
         )
         .fromTo(
           kidStylesContentContainer,
           { scale: 1, y: 0 },
-          { scale: 0.8, y: -50 }
+          { scale: 0.8, y: -50 },
         );
     },
-    { scope: kidStylesContainerRef }
+    { scope: kidStylesContainerRef },
   );
 
   return (

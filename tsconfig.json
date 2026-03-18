@@ -22,6 +22,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/(auth)/logout/actions.ts",
+    "app/(auth)/logout/page.js",
+    "_components/_header/_cartIcon/CartIcon.js"
+  ],
   "exclude": ["node_modules"]
 }

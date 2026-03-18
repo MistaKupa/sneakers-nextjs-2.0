@@ -1,12 +1,11 @@
 "use client";
 
-import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { login, loginWithGoogle } from "./actions";
 
 export default function Login() {
@@ -14,11 +13,11 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage("");
 
-    const result = await login(new FormData(e.target));
+    const result = await login(new FormData(e.currentTarget));
 
     if (result?.error) {
       setErrorMessage(result.error);
@@ -65,7 +64,7 @@ export default function Login() {
           }}
           transition={{
             duration: 0.3,
-            type: errorMessage ? "" : "spring",
+            type: errorMessage ? false : "spring",
             stiffness: 100,
           }}
           className="bg-dark-100 w-7/8 md:w-[33rem] md:h-[40rem] flex flex-col justify-between shadow-xl rounded-lg gap-10 p-1 pt-16"

@@ -4,8 +4,9 @@ import navLinks from "@/data/constants";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
+import { MenuState } from "@/types/menu.types";
 
 const listVariants = {
   hidden: { opacity: 0, width: 0 },
@@ -34,7 +35,13 @@ const itemVariants = {
   exit: { opacity: 0, y: -10 },
 };
 
-export default function Navigation({ openMenu, setOpenMenu }) {
+export default function Navigation({
+  openMenu,
+  setOpenMenu,
+}: {
+  openMenu: MenuState;
+  setOpenMenu: Dispatch<SetStateAction<MenuState>>;
+}) {
   const pathname = usePathname();
 
   const isOpen = openMenu === "nav";

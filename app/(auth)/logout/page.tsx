@@ -5,12 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation"; // Using Next.js router for client-side navigation
+import { MouseEvent } from "react";
 
-function Logout() {
+export default function Logout() {
   const supabase = createClientInstance();
   const router = useRouter(); // useRouter for client-side navigation
 
-  const handleLogout = async (e) => {
+  const handleLogout = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const { error } = await supabase.auth.signOut();
     if (!error) {
@@ -79,5 +80,3 @@ function Logout() {
     </div>
   );
 }
-
-export default Logout;

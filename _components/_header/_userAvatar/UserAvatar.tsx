@@ -8,8 +8,16 @@ import { useUserProfile } from "@/hooks/useUSerProfile";
 import { AnimatePresence, motion } from "framer-motion";
 import AvatarMenu from "./AvatarMenu";
 import AvatarMenuMobile from "./AvatarMenuMobile";
+import { Dispatch, SetStateAction } from "react";
+import { MenuState } from "@/types/menu.types";
 
-export default function UserAvatar({ openMenu, setOpenMenu }) {
+export default function UserAvatar({
+  openMenu,
+  setOpenMenu,
+}: {
+  openMenu: MenuState;
+  setOpenMenu: Dispatch<SetStateAction<MenuState>>;
+}) {
   const session = useUserProfile();
   const isAuthenticated = !!session?.profile;
 
@@ -67,7 +75,9 @@ export default function UserAvatar({ openMenu, setOpenMenu }) {
               transition={{ duration: 0.3 }}
               className="md:hidden w-full h-screen absolute inset-0 pt-28 bg-dark-100 -z-10"
             >
-              <AvatarMenuMobile session={session} />
+              <AvatarMenuMobile
+              //  session={session}
+              />
             </motion.div>
 
             <motion.div
@@ -78,7 +88,9 @@ export default function UserAvatar({ openMenu, setOpenMenu }) {
               transition={{ duration: 0.2 }}
               className="hidden md:block absolute top-24 md:right-5 lg:right-5 z-50"
             >
-              <AvatarMenu session={session} />
+              <AvatarMenu
+              // session={session}
+              />
             </motion.div>
           </>
         )}

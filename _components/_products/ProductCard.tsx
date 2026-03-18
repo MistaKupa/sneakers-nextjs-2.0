@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PriceDetails from "./PriceDetails";
 import { motion } from "framer-motion";
+import { ProductDetailsPublic } from "@/types/product.types";
 
-function ProductCard({ product }) {
+function ProductCard({ product }: { product: ProductDetailsPublic }) {
   const discountedAmount = product.price * (product.discount / 100);
   const discountedPrice = product.price - discountedAmount;
 

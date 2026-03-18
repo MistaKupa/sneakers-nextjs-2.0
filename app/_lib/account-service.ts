@@ -1,8 +1,19 @@
+import { SignUpFormData } from "@/types/auth.types";
 import { createClientInstance } from "@/utils/supabase/client";
 
 import toast from "react-hot-toast";
 
-export async function signUpUser(formData) {
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
+type ActionResult = { success: true } | { success: false; error: string };
+
+export async function signUpUser(
+  formData: SignUpFormData,
+): Promise<ActionResult> {
   try {
     const response = await fetch("/api/auth/sign-up", {
       method: "POST",
@@ -10,7 +21,7 @@ export async function signUpUser(formData) {
       body: JSON.stringify(formData),
     });
 
-    const result = await response.json();
+    const result: ApiResponse = await response.json();
 
     if (!result.success) {
       toast.error(result.error);
@@ -22,13 +33,13 @@ export async function signUpUser(formData) {
   } catch (error) {
     const msg = error?.message || "Network error";
     toast.error(
-      "Something went wrong while creating account. Please try again."
+      "Something went wrong while creating account. Please try again.",
     );
     return { success: false, error: msg };
   }
 }
 
-export async function updatePassword(newPassword, oldPassword) {
+export async function updatePassword(newPassword: string, oldPassword: string) {
   try {
     const response = await fetch("/api/auth/change-password", {
       method: "POST",
@@ -47,17 +58,23 @@ export async function updatePassword(newPassword, oldPassword) {
     return true;
   } catch (error) {
     toast.error(
-      "Something went wrong while updating password, please try again."
+      "Something went wrong while updating password, please try again.",
     );
     return false;
   }
 }
 
-export async function updateProfileInfo(
+interface UpdateProfileInfoParams {
+  newBirthDate: string;
+  newGender: string;
+  newDisplayName: string;
+}
+
+export async function updateProfileInfo({
   newBirthDate,
   newGender,
-  newDisplayName
-) {
+  newDisplayName,
+}: UpdateProfileInfoParams) {
   try {
     const supabase = createClientInstance();
     const { data: user, error: userError } = await supabase.auth.getUser();
@@ -88,7 +105,7 @@ export async function updateProfileInfo(
   }
 }
 
-export async function updateEmail(newEmail) {
+export async function updateEmail(newEmail: string) {
   try {
     const response = await fetch("/api/auth/change-email", {
       method: "POST",

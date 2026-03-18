@@ -13,28 +13,11 @@ function Cart({}) {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const openPopup = () => {
-    clearTimeout();
-    setIsOpen(true);
-  };
-
-  const closePopup = () => {
-    setTimeout(() => setIsOpen(false), 300);
-  };
-
   return (
-    <div
-      className="relative h-full group"
-      onMouseEnter={openPopup}
-      onMouseLeave={closePopup}
-    >
+    <div className="relative h-full group">
       <div className="relative flex items-center justify-center">
         <Link className="flex items-center justify-center" href="/main/cart">
-          <button
-            onClick={() => setCheckoutProgress("in-cart")}
-            onMouseEnter={openPopup}
-            onMouseLeave={closePopup}
-          >
+          <button onClick={() => setCheckoutProgress("in-cart")}>
             <IoCartOutline className=" size-5 sm:size-7" />
           </button>
         </Link>
@@ -45,11 +28,7 @@ function Cart({}) {
         </span>
 
         <div className="absolute top-5 -right-12 md:-right-16 lg:-right-24 hidden group-hover:block">
-          <CartPopup
-            isOpen={isOpen}
-            openPopup={openPopup}
-            closePopup={closePopup}
-          />
+          <CartPopup />
         </div>
       </div>
     </div>

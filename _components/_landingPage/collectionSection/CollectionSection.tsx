@@ -1,11 +1,15 @@
 "use client";
 
-import useSectionColorChange from "@/hooks/useSectionColorChange";
+import { CollectionDetail } from "@/types/collection.types";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-export default function CollectionSection({ collections }) {
+export default function CollectionSection({
+  collections,
+}: {
+  collections: CollectionDetail[];
+}) {
   const collectionSectionRef = useRef(null);
 
   return (

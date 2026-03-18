@@ -1,4 +1,10 @@
-function PriceDetails({ price, discountedPrice, discount }) {
+import { ProductPriceDetails } from "@/types/product.types";
+
+interface PriceDetailsProps extends ProductPriceDetails {
+  discountedPrice: number;
+}
+
+function PriceDetails({ price, discountedPrice, discount }: PriceDetailsProps) {
   return (
     <div className="min-h-[80px] flex flex-col">
       {discount ? (

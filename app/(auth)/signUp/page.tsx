@@ -30,7 +30,7 @@ export default function SignUp() {
 
     const result = await signUpUser(data);
 
-    if (!result.success) {
+    if (result.success === false) {
       console.error(result.error);
       reset();
       return;

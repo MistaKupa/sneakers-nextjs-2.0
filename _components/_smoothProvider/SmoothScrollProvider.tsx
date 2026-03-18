@@ -4,11 +4,15 @@ import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 if (typeof window !== "undefined") {
   gsap.registerPlugin(useGSAP);
 }
-export default function SmoothScrollProvider({ children }) {
+export default function SmoothScrollProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const smoother = useRef(null);
   const pathname = usePathname();
   useGSAP(
@@ -22,7 +26,7 @@ export default function SmoothScrollProvider({ children }) {
 
       ScrollTrigger.refresh();
     },
-    { dependencies: [pathname], revertOnUpdate: true }
+    { dependencies: [pathname], revertOnUpdate: true },
   );
   return (
     <div id="smooth-wrapper">

@@ -5,8 +5,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import useSectionColorChange from "@/hooks/useSectionColorChange";
+import { Product } from "@/types/product.types";
 
-export default function BestSellersSection({ bestSellers }) {
+export default function BestSellersSection({
+  bestSellers,
+}: {
+  bestSellers: Product[];
+}) {
   const bestSellerSectionRef = useRef(null);
 
   return (

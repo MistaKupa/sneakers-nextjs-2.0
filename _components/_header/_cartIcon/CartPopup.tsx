@@ -3,7 +3,7 @@ import Link from "next/link";
 import MiniProductCard from "../../_miniProductCard/MiniProductCard";
 import CartEmpty from "./CartEmpty";
 
-function CartPopup({ isOpen, openPopup, closePopup }) {
+function CartPopup({}) {
   const { setCheckoutProgress, cart } = useCart();
 
   return (

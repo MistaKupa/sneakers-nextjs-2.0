@@ -1,7 +1,7 @@
 import { createServerClientInstance } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function POST(request: Request) {
   try {
     const supabase = await createServerClientInstance();
 
@@ -11,7 +11,11 @@ export async function POST(request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { oldPassword, newPassword } = await request.json();
+    const res: { oldPassword: string; newPassword: string } =
+      await request.json();
+
+    const { oldPassword, newPassword } = res;
+
     // Verify old password
     const { error: signInError } = await supabase.auth.signInWithPassword({
       email: user.user.email,
@@ -21,7 +25,7 @@ export async function POST(request) {
     if (signInError) {
       return NextResponse.json(
         { success: false, error: "Old password is incorrect" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -33,7 +37,7 @@ export async function POST(request) {
     if (updateError) {
       return NextResponse.json(
         { success: false, error: updateError.message },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -44,7 +48,7 @@ export async function POST(request) {
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

@@ -1,7 +1,7 @@
 import { createServerClientInstance } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function POST(request: Request) {
   try {
     const supabase = await createServerClientInstance();
 
@@ -11,7 +11,8 @@ export async function POST(request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { newEmail } = await request.json();
+    const res: { newEmail: string } = await request.json();
+    const { newEmail } = res;
 
     const { error: emailUpdateError } = await supabase.auth.updateUser({
       email: newEmail,
@@ -23,7 +24,7 @@ export async function POST(request) {
           success: false,
           error: emailUpdateError.message,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -35,7 +36,7 @@ export async function POST(request) {
     if (profileUpdateError) {
       return NextResponse.json(
         { success: false, error: profileUpdateError.message },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -46,7 +47,7 @@ export async function POST(request) {
   } catch (error) {
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
