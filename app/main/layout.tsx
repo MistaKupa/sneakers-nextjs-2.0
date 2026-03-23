@@ -25,12 +25,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <CartProvider>
           <Header />
-          <SmoothScrollProvider>
-            <main className="w-full min-h-screen">
-              <QueryProvider>{children}</QueryProvider>
-            </main>
-            <Footer />
-          </SmoothScrollProvider>
+          <QueryProvider>
+            <SmoothScrollProvider>
+              <main className="w-full min-h-screen">{children}</main>
+              <Footer />
+            </SmoothScrollProvider>
+          </QueryProvider>
         </CartProvider>
 
         <Toaster position="top-center" />

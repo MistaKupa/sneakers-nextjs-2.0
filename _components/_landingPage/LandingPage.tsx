@@ -2,7 +2,7 @@ import {
   getCollections,
   getProducts,
   getProductsByTag,
-} from "@/app/_lib/data-service";
+} from "@/app/_lib/data-service-server";
 import BannerSection from "./bannerSection/BannerSection";
 import BestSellersSection from "./bestSellersSection/BestSellersSection";
 import CollectionSection from "./collectionSection/CollectionSection";

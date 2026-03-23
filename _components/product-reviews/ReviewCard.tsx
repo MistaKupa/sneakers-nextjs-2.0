@@ -3,11 +3,14 @@ import { Review } from "@/types/review.types";
 import { IoStarSharp } from "react-icons/io5";
 
 export default function ReviewCard({ review }: { review: Review }) {
-  const userInitials = review.user_name
-    ?.split(" ")
-    .map((name) => name[0])
-    .join("")
-    .toUpperCase();
+  const userInitials =
+    review.user_name
+      ?.split(" ")
+      .map((name) => name[0])
+      .join("")
+      .toUpperCase() ?? "?";
+
+  const stars = Array.from({ length: review.stars });
 
   return (
     <div className={cn("flex flex-col gap-5 p-5 border rounded-xl")}>
@@ -18,13 +21,13 @@ export default function ReviewCard({ review }: { review: Review }) {
         <span className="font-semibold">{review.user_name}</span>
       </div>
 
-      <span className="flex gap-1">
-        <IoStarSharp size={19} className="text-amber-400" />
-        <IoStarSharp size={19} className="text-amber-400" />
-        <IoStarSharp size={19} className="text-amber-400" />
-      </span>
+      <div className="flex gap-1">
+        {stars.map((_, i) => (
+          <IoStarSharp key={i} size={19} className="text-amber-400" />
+        ))}
+      </div>
 
-      <p className="text-dark-400">{review.review}</p>
+      <p className="text-dark-400 break-words">{review.review}</p>
     </div>
   );
 }

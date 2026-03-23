@@ -1,4 +1,4 @@
-import { getUserOrders } from "@/app/_lib/data-service";
+import { getUserOrders } from "@/app/_lib/data-service-server";
 import React from "react";
 import OrderCard from "./OrderCard";
 import OrderCardMobile from "./OrderCardMobile";

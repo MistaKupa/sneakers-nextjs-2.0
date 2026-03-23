@@ -1,13 +1,14 @@
 "use client";
 
 import { cn } from "@/app/_lib/utils";
-import { IoStarSharp } from "react-icons/io5";
 import StarsPercentage from "./StarsPercentage";
 import ReviewCard from "./ReviewCard";
 import { ProductId } from "@/types/product.types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getProductReviewsClient } from "@/app/_lib/data-service-client";
 import { useEffect, useRef } from "react";
+import TotalReviews from "./TotalReviews";
+import AverageRating from "./AverageRating";
 
 export default function ProductReviews({
   productId,
@@ -40,32 +41,35 @@ export default function ProductReviews({
     return () => observer.disconnect();
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
-  if (!data || allReviews.length === 0) {
-    return (
-      <div className="flex w-full flex-col gap-8 xl:gap-12">
-        <h4 className="text-2xl font-semibold">Product Reviews</h4>
-        <p className="text-dark-400">
-          There are no reviews for this product yet.
-        </p>
-      </div>
-    );
-  }
-
   return (
-    <div className="flex w-full flex-col gap-8 xl:gap-12">
+    <div className="flex w-full flex-col gap-8 xl:gap-20">
       <h4 className="text-2xl font-semibold">Product Reviews</h4>
 
       <div
         className={cn(
           "flex flex-col gap-8",
           "md:gap-10",
-          "lg:grid lg:grid-cols-3",
+          "lg:grid lg:grid-cols-3 lg:gap-0",
         )}
       >
         <div
-          className={cn("w-full", "border-b-2 pb-5", "lg:border-b-0 lg:pb-0")}
+          className={cn(
+            "w-full",
+            "border-b-2 pb-5",
+            "lg:border-b-0 lg:pb-0 lg:border-r-2",
+          )}
         >
-          <StarsPercentage />
+          <StarsPercentage productId={productId} />
+        </div>
+
+        <div
+          className={cn(
+            "flex items-center justify-center",
+            "border-b-2 pb-5",
+            "lg:border-b-0 lg:pb-0 lg:border-r-2",
+          )}
+        >
+          <TotalReviews productId={productId} />
         </div>
 
         <div
@@ -75,39 +79,36 @@ export default function ProductReviews({
             "lg:border-b-0 lg:pb-0",
           )}
         >
-          <h5 className="text-xl font-semibold">Total Reviews</h5>
-          <span className="text-dark-400">5K+ Reviews</span>
-        </div>
-
-        <div
-          className={cn(
-            "flex flex-col items-center justify-center gap-1",
-            "border-b-2 pb-5",
-            "lg:border-b-0 lg:pb-0",
-          )}
-        >
-          <h5 className="text-xl font-semibold">Average Rating</h5>
-          <div className="flex gap-1">
-            <span className="text-dark-400">4.5</span>
-            <IoStarSharp size={19} className="text-amber-400" />
-          </div>
+          <AverageRating productId={productId} />
         </div>
       </div>
 
       <div>
-        <h6 className="mb-5 text-lg font-semibold">Reviews</h6>
-
-        <div className="grid gap-x-5 gap-y-10 lg:grid-cols-3">
-          {allReviews.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
+        <div className="flex justify-between items-center pb-5 border-b-2">
+          <h6 className="text-lg font-semibold">Reviews</h6>
+          <button className="px-3 py-1.5 bg-newPrimary rounded-lg font-medium text-dark-200">
+            Add Review
+          </button>
         </div>
 
-        <div ref={loadMoreRef} />
-        {isFetchingNextPage && (
-          <span className="mt-4 block text-center text-dark-400">
-            Loading more...
-          </span>
+        {allReviews.length === 0 ? (
+          <p className="py-10 text-center text-dark-400">
+            There are no reviews for this product yet.
+          </p>
+        ) : (
+          <>
+            <div className="w-full grid gap-x-5 gap-y-10 lg:grid-cols-3 py-10">
+              {allReviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))}
+            </div>
+            <div ref={loadMoreRef} />
+            {isFetchingNextPage && (
+              <span className="mt-4 block text-center text-dark-400">
+                Loading more...
+              </span>
+            )}
+          </>
         )}
       </div>
     </div>
