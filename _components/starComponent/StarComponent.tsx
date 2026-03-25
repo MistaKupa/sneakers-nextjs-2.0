@@ -4,30 +4,32 @@ import { cn } from "@/app/_lib/utils";
 import { useState } from "react";
 import { IoStarOutline, IoStarSharp } from "react-icons/io5";
 
+interface StarComponentProps {
+  value: number;
+  onChange: (value: number) => void;
+}
+
 const STARS_DEFAULT = 5;
 
-export default function StarComponent() {
-  const [rating, setRating] = useState(1);
+export default function StarComponent({ value, onChange }: StarComponentProps) {
+  // const [rating, setRating] = useState(1);
   const [tempRating, setTempRating] = useState(0);
 
-  console.log("rat:", rating);
-  console.log("temp:", tempRating);
-
-  let stars = Array(STARS_DEFAULT).fill("STAR");
+  let stars = Array.from({ length: STARS_DEFAULT });
 
   return (
     <div className="flex gap-1" onMouseLeave={() => setTempRating(0)}>
-      {stars.map((star, i) => (
+      {stars.map((_, i) => (
         <div
           key={i}
-          onClick={() => setRating(i + 1)}
+          onClick={() => onChange(i + 1)}
           onMouseEnter={() => setTempRating(i + 1)}
           className="text-amber-400"
         >
-          {rating > i || tempRating > i ? (
-            <IoStarSharp size={20} />
+          {value > i || tempRating > i ? (
+            <IoStarSharp size={35} />
           ) : (
-            <IoStarOutline size={20} />
+            <IoStarOutline size={35} />
           )}
         </div>
       ))}

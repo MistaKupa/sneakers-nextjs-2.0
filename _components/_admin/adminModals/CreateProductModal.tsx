@@ -9,7 +9,10 @@ interface CreateProductModalProps {
   onClose: () => void;
 }
 
-export default function CreateProductModal({ isOpen, onClose }) {
+export default function CreateProductModal({
+  isOpen,
+  onClose,
+}: CreateProductModalProps) {
   const modalRef = useRef(null);
 
   const [isMounted, setIsMounted] = useState(false);

@@ -59,7 +59,11 @@ export default async function Page({
       <ProductDescription product={product} sneakerSizes={sneakerSizes} />
       <div className="col-span-2 mt-20 xl:mt-0">
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <ProductReviews productId={numProductId} />
+          <ProductReviews
+            productId={numProductId}
+            productImage={images[0]}
+            productTitle={product.title}
+          />
         </HydrationBoundary>
       </div>
     </div>

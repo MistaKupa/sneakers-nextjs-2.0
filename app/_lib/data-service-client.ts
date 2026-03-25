@@ -1,4 +1,5 @@
 import { ProductId } from "@/types/product.types";
+import { ReviewInsert } from "@/types/review.types";
 import { createClientInstance } from "@/utils/supabase/client";
 
 export async function getProductReviewsClient(id: ProductId, page: number) {
@@ -58,4 +59,19 @@ export async function getProductReviewStatsClient(id: ProductId) {
   }));
 
   return { total, average: roundAverage, starDistribution };
+}
+
+export async function uploadProductReview({
+  newReview,
+}: {
+  newReview: ReviewInsert;
+}) {
+  const supabase = createClientInstance();
+
+  const { data, error } = await supabase.from("reviews").insert(newReview);
+
+  if (error) {
+    console.error(error);
+    throw new Error("Could not add new review.");
+  }
 }
