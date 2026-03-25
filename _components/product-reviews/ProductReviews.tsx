@@ -98,7 +98,14 @@ export default function ProductReviews({
             <h6 className="text-lg font-semibold">Reviews</h6>
             <button
               type="button"
-              className="px-3 py-1.5 bg-newPrimary rounded-lg font-medium text-dark-200"
+              className={cn(
+                "px-3 py-1.5",
+                "bg-newPrimary rounded-lg",
+                "font-medium text-dark-200",
+                "hover:bg-newPrimaryGradient hover:scale-105",
+                "active:scale-95",
+                "transition-all duration-300",
+              )}
               onClick={() => setIsAddReviewOpen(true)}
             >
               Add Review

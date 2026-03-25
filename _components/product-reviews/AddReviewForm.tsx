@@ -47,7 +47,14 @@ export default function AddReviewForm({
   return (
     <form onSubmit={handleSubmit(onAddReview)} className="flex flex-col gap-8">
       {/* NAME */}
-      <div className="relative flex justify-between border-b pb-8">
+      <div
+        className={cn(
+          "relative",
+          "flex flex-col items-center gap-2",
+          "border-b pb-8",
+          "md:flex-row md:justify-between md:items-start md:gap-0",
+        )}
+      >
         <label htmlFor="name" className="font-medium">
           What is your name?
         </label>
@@ -73,7 +80,14 @@ export default function AddReviewForm({
       </div>
 
       {/* RATING */}
-      <div className="relative flex justify-between border-b pb-8">
+      <div
+        className={cn(
+          "relative",
+          "flex flex-col items-center gap-2",
+          "border-b pb-8",
+          "md:flex-row md:justify-between md:items-start md:gap-0",
+        )}
+      >
         <label htmlFor="stars" className="font-medium">
           What is your rating?
         </label>
@@ -91,8 +105,13 @@ export default function AddReviewForm({
       </div>
 
       {/* REVIEW */}
-      <div className="relative flex flex-col gap-2">
-        <label htmlFor="review">Review</label>
+      <div className={cn("relative", "flex flex-col gap-2")}>
+        <label
+          htmlFor="review"
+          className="font-medium self-center md:self-start"
+        >
+          Your review
+        </label>
         <textarea
           id="review"
           rows={6}
@@ -122,6 +141,8 @@ export default function AddReviewForm({
 
           "hover:bg-newPrimaryGradient hover:scale-105",
           "transition-all duration-300",
+
+          "active:scale-95",
 
           "disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-newPrimary disabled:opacity-70",
         )}

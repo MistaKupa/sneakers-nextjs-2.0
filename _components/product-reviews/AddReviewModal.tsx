@@ -6,6 +6,7 @@ import AddReviewForm from "./AddReviewForm";
 import Image from "next/image";
 import { IoCloseSharp } from "react-icons/io5";
 import { ProductId } from "@/types/product.types";
+import { cn } from "@/app/_lib/utils";
 
 interface AddReviewModalProps {
   productId: ProductId;
@@ -48,27 +49,43 @@ export default function AddReviewModal({
   if (!isMounted || !isOpen) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto">
+    <div className="fixed inset-0 z-[100] flex items-start lg:items-center justify-center overflow-y-auto">
       {/* BLUR BG */}
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
 
       {/* FORM CONTAINER */}
       <div
         ref={modalRef}
-        className="relative my-10 w-1/3 bg-dark-200 rounded-lg"
+        className={cn(
+          "relative my-10",
+          " bg-dark-200 rounded-lg",
+          "w-11/12",
+          "md:w-4/5",
+          "lg:w-3/5",
+          "xl:w-1/3",
+        )}
       >
         {/* HEADER */}
         <div className="flex justify-between p-5 shadow sticky top-0 bg-dark-200 rounded-t-lg z-10">
-          <button type="button" onClick={onClose} className="text-newPrimary">
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-newPrimary hover:scale-110 active:scale-95 transition-all duration-300"
+          >
             <IoCloseSharp size={30} />
           </button>
-          <button type="submit" className="font-semibold text-newPrimary">
-            Add
-          </button>
+          <div className="flex items-center">
+            <Image
+              src="/images/logo_black.svg"
+              width={100}
+              height={100}
+              alt="Sneakers logo black"
+            />
+          </div>
         </div>
 
         {/* CONTENT */}
-        <div className="flex flex-col gap-8 px-12 py-16 mt-16">
+        <div className="flex flex-col gap-8 px-5 py-16 md:px-12 lg:mt-20">
           <div className="flex flex-col text-center gap-4">
             <h1 className="text-4xl font-bold">Product review</h1>
             <p>
