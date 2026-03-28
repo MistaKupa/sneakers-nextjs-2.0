@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction } from "react";
 
 interface ProductSizesProps {
   sizes: ProductSizeAndQuantity[];
-  selectedSize: string;
+  selectedSize: string | null;
   setSelectedSize: Dispatch<SetStateAction<string | null>>;
 }
 

@@ -11,7 +11,7 @@ function ProductButtons({
   selectedSize,
 }: {
   product: Product;
-  selectedSize: string;
+  selectedSize: string | null;
 }) {
   const { addToCart } = useCart();
 

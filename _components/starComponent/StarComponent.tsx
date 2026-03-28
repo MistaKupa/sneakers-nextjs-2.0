@@ -20,8 +20,10 @@ export default function StarComponent({ value, onChange }: StarComponentProps) {
   return (
     <div className="flex gap-1" onMouseLeave={() => setTempRating(0)}>
       {stars.map((_, i) => (
-        <div
+        <button
+          type="button"
           key={i}
+          aria-label={`Rate ${i + 1} stars`}
           onClick={() => onChange(i + 1)}
           onMouseEnter={() => setTempRating(i + 1)}
           className="text-amber-400"
@@ -31,7 +33,7 @@ export default function StarComponent({ value, onChange }: StarComponentProps) {
           ) : (
             <IoStarOutline size={35} />
           )}
-        </div>
+        </button>
       ))}
     </div>
   );
