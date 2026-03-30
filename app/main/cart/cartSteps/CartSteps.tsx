@@ -24,6 +24,8 @@ const cartVariants = {
 export default function CartSteps() {
   const { checkoutProgress, cart, isCartReady } = useCart();
 
+  console.log("jak vyzera:", cart);
+
   if (!isCartReady) {
     return (
       <div className="max-w-[1440px] mx-auto flex flex-col items-center justify-center mt-28 gap-10">
