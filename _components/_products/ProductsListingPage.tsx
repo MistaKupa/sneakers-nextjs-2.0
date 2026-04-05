@@ -67,7 +67,7 @@ export default async function ProductListingPage({
   );
 
   return (
-    <section className="max-w-[1440px] min-h-screen py-20 px-8 flex flex-col justify-center gap-10 md:px-10 lg:px-12 xl:px-0 xl:my-20 xl:py-0 mx-auto ">
+    <section className="max-w-[1440px] min-h-screen py-20 px-8 flex flex-col justify-center gap-10 md:px-10 lg:px-12 xl:px-0 xl:my-20 xl:py-0 mx-auto">
       {/* Heading */}
       <div className="flex items-baseline gap-1 mt-16">
         <h2 className="text-dark-500 text-2xl font-semibold uppercase">

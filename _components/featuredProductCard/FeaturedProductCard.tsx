@@ -15,9 +15,9 @@ function FeaturedProductCard({
   const { id, title, price, discount, images } = products[0];
 
   return (
-    <div className="bannerProduct bg-white bg-opacity-75 flex flex-col justify-between w-full h-96 lg:grid lg:grid-cols-3 md:w-96 lg:w-[30rem] lg:h-60 p-2 rounded-md">
+    <div className="bannerProduct bg-white bg-opacity-75 flex flex-col w-full max-w-96 lg:max-w-[30rem] lg:grid lg:grid-cols-3 lg:h-60 p-2 rounded-md">
       <Link
-        className="block w-full h-full lg:col-span-2"
+        className="block w-full h-48 sm:h-56 lg:h-full lg:col-span-2"
         href={`/main/product/${id}`}
       >
         <motion.div

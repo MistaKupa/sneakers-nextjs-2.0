@@ -57,7 +57,7 @@ export default function BannerSection({
   return (
     <section
       ref={bannerContainerRef}
-      className="pink-section relative w-full min-h-screen mx-auto"
+      className="pink-section relative w-full min-h-screen mx-auto pb-10"
     >
       <div ref={imageContainerRef} className="absolute w-full h-full z-0">
         <Image
@@ -70,21 +70,23 @@ export default function BannerSection({
         />
       </div>
 
-      <div className="relative max-w-[1440px] h-screen mx-auto py-20 px-5 md:px-10 lg:px-16 xl:px-16">
+      <div className="relative max-w-[1440px] min-h-screen mx-auto py-20 px-5 md:px-10 lg:px-16 xl:px-16">
         <div
           ref={bannerContentRef}
-          className="w-full h-full flex flex-col justify-between lg:grid lg:grid-cols-2 "
+          className="w-full min-h-[calc(100vh-10rem)] flex flex-col justify-between gap-8 lg:grid lg:grid-cols-2"
         >
           <div className="bannerText flex flex-col gap-5 text-dark-100 mt-10">
-            <h1 className="text-6xl lg:text-8xl font-bold">Sneakers Epic</h1>
-            <p className="lg:text-lg font-medium">
-              Step into the future of streetwear with bold design and <br />
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold">
+              Sneakers Epic
+            </h1>
+            <p className="sm:text-base lg:text-lg font-medium">
+              Step into the future of streetwear with bold design and
+              <br className="hidden sm:block" />
               unmatched performance.
             </p>
           </div>
 
-          {/*Featured Product Card */}
-          <div className="flex items-end justify-end">
+          <div className="flex items-end justify-center lg:justify-end">
             <FeaturedProductCard products={products} />
           </div>
         </div>

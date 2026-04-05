@@ -90,16 +90,18 @@ export default function KidStylesSection({
 
       <div
         ref={kidStylesContentContainerRef}
-        className="relative max-w-[1440px] h-screen mx-auto py-20 z-20 px-5 md:px-10 lg:px-16 xl:px-16"
+        className="relative max-w-[1440px] min-h-screen mx-auto py-20 z-20 px-5 md:px-10 lg:px-16 xl:px-16"
       >
-        <div className="w-full h-full flex flex-col justify-between lg:grid lg:grid-cols-2">
+        <div className="w-full min-h-[calc(100vh-10rem)] flex flex-col justify-between gap-8 lg:grid lg:grid-cols-2">
           <div className="flex flex-col gap-8 lg:gap-16 text-dark-100">
-            <div>
-              <h1 className="text-6xl lg:text-8xl font-bold ">25% Off</h1>
-              <h1 className="text-6xl lg:text-8xl font-bold ">Kids Styles</h1>
-            </div>
+            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold">
+              <span className="block">25% Off</span>
+              <span className="block">Kids Styles</span>
+            </h1>
             <div className="flex flex-col gap-4">
-              <p className="lg:text-lg font-medium">Exclusive, limited offer</p>
+              <p className="text-sm sm:text-base lg:text-lg font-medium">
+                Exclusive, limited offer
+              </p>
               <div>
                 <Link
                   className="uppercase text-newPrimary text-sm font-bold bg-dark-100 px-3 py-2 rounded-full"
@@ -112,7 +114,7 @@ export default function KidStylesSection({
           </div>
 
           {/*Featured Product Card*/}
-          <div className="flex items-end justify-end">
+          <div className="flex items-end justify-center lg:justify-end">
             <FeaturedProductCard products={kidStyles} />
           </div>
         </div>
