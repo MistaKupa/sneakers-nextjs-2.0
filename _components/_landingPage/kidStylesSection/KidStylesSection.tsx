@@ -105,7 +105,7 @@ export default function KidStylesSection({
               <div>
                 <Link
                   className="uppercase text-newPrimary text-sm font-bold bg-dark-100 px-3 py-2 rounded-full"
-                  href=""
+                  href="main/site/kid-styles"
                 >
                   Shop Now
                 </Link>

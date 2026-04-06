@@ -62,40 +62,42 @@ export default function Products({
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-center my-10">
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="p-2 border rounded disabled:opacity-50 hover:bg-gray-100 transition"
-        >
-          <IoChevronBack />
-        </button>
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center my-10">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="p-2 border rounded disabled:opacity-50 hover:bg-gray-100 transition"
+          >
+            <IoChevronBack />
+          </button>
 
-        {Array.from({ length: totalPages }, (_, index) => {
-          const page = index + 1;
-          return (
-            <button
-              key={page}
-              onClick={() => handlePageChange(page)}
-              className={`w-8 h-8 rounded border text-sm font-medium ${
-                currentPage === page
-                  ? "bg-newPrimary text-white"
-                  : "bg-white hover:bg-gray-100"
-              }`}
-            >
-              {page}
-            </button>
-          );
-        })}
+          {Array.from({ length: totalPages }, (_, index) => {
+            const page = index + 1;
+            return (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`w-8 h-8 rounded border text-sm font-medium ${
+                  currentPage === page
+                    ? "bg-newPrimary text-white"
+                    : "bg-white hover:bg-gray-100"
+                }`}
+              >
+                {page}
+              </button>
+            );
+          })}
 
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="p-2 border rounded disabled:opacity-50 hover:bg-gray-100 transition"
-        >
-          <IoChevronForward />
-        </button>
-      </div>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="p-2 border rounded disabled:opacity-50 hover:bg-gray-100 transition"
+          >
+            <IoChevronForward />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

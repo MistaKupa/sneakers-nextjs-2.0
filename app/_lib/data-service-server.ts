@@ -3,7 +3,7 @@ import { ProductId } from "@/types/product.types";
 import { createClientInstance } from "@/utils/supabase/client";
 import { createServerClientInstance } from "@/utils/supabase/server";
 
-export async function getProductsByTag(tag: string, limit: number) {
+export async function getProductsByTag(tag: string, limit?: number) {
   const supabase = await createServerClientInstance();
 
   let query = supabase.from("sneakers").select("*").contains("tags", [tag]);

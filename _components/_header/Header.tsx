@@ -33,11 +33,11 @@ export default function Header({}) {
   const isSignUpPage = pathname === "/signUp";
   const isAdminPage = pathname.startsWith("/admin");
 
-  const defaultNavTextColor = "text-dark-500";
+  const defaultNavStyle = "text-dark-500 bg-slate-50 shadow";
   const landingPageNavDefaultTextColor = "text-dark-100";
 
   const [currentTextColorClass, setCurrentTextColorClass] = useState(
-    isLandingPage ? landingPageNavDefaultTextColor : defaultNavTextColor,
+    isLandingPage ? landingPageNavDefaultTextColor : defaultNavStyle,
   );
 
   const [logoBlackOpacity, setLogoBlackOpacity] = useState("");
@@ -59,7 +59,7 @@ export default function Header({}) {
   useGSAP(
     () => {
       if (!isLandingPage) {
-        setCurrentTextColorClass(defaultNavTextColor);
+        setCurrentTextColorClass(defaultNavStyle);
         gsap.set(logoBlackRef.current, { opacity: 1 });
         return;
       }
