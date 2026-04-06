@@ -14,6 +14,9 @@ function FeaturedProductCard({
 }) {
   const { id, title, price, discount, images } = products[0];
 
+  const discountedAmount = price * (discount / 100);
+  const discountedPrice = price - discountedAmount;
+
   return (
     <div className="bannerProduct bg-white bg-opacity-75 flex flex-col w-full max-w-96 lg:max-w-[30rem] lg:grid lg:grid-cols-3 lg:h-60 p-2 rounded-md">
       <Link
@@ -40,7 +43,11 @@ function FeaturedProductCard({
           <h5 className="uppercase text-sm font-semibold">{title}</h5>
           <div className="flex gap-3 ">
             <p>{price}€</p>
-            <p className="text-dark-400 line-through">180.00€</p>
+            {discount > 0 && (
+              <p className="text-dark-400 line-through">
+                {discountedPrice.toFixed(2)}€
+              </p>
+            )}
           </div>
         </div>
         {/* <button className="uppercase bg-newPrimary text-dark-100 text-sm  font-bold px-3 py-3 rounded-full">
