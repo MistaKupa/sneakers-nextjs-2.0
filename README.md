@@ -18,7 +18,7 @@ The project started as a Frontend Mentor challenge and gradually evolved into a 
 
 ## 📸 Admin Dashboard Demo
 
-![Admin Demo](./assets/admin-demo.gif)
+![Admin Demo](./assets/admin-dashboard-demo.gif)
 
 ## 🎯 Project Background
 
