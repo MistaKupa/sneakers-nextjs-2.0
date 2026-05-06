@@ -28,26 +28,14 @@ export default function AvatarMenu({ role }: { role: "user" | "admin" }) {
           >
             <Link
               className="flex gap-4 hover:text-newPrimary transition-all duration-200"
-              href=""
+              href="/admin/dashboard"
             >
               <IoLockClosedOutline size={23} />
               <span>Admin Dashboard</span>
             </Link>
           </motion.div>
         )}
-        <motion.div
-          whileTap={{ scale: 1, x: 0 }}
-          whileHover={{ scale: 1.05, x: 3 }}
-          className="min-w-44"
-        >
-          <Link
-            className="flex gap-4 hover:text-newPrimary transition-all duration-200"
-            href=""
-          >
-            <IoPersonOutline size={23} />
-            <span>Account</span>
-          </Link>
-        </motion.div>
+
         <motion.div
           whileTap={{ scale: 1, x: 0 }}
           whileHover={{ scale: 1.05, x: 3 }}
