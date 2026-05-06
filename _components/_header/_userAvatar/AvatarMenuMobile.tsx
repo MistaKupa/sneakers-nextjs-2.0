@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   IoCogOutline,
+  IoLockClosedOutline,
   IoLogOutOutline,
   IoPersonOutline,
 } from "react-icons/io5";
 import { TfiPackage } from "react-icons/tfi";
 import UserDetails from "../../_account/accountSideBar/userDetails/UserDetails";
 
-export default function AvatarMenuMobile() {
+export default function AvatarMenuMobile({ role }: { role: "user" | "admin" }) {
   return (
     <div className="h-full w-full flex flex-col items-center">
       <motion.div
@@ -22,6 +23,21 @@ export default function AvatarMenuMobile() {
         </Link>
 
         <div className="flex flex-col gap-7 text-dark-400 ">
+          {role === "admin" && (
+            <motion.div
+              whileTap={{ scale: 1, x: 0 }}
+              whileHover={{ scale: 1.05, x: 3 }}
+              className="min-w-44"
+            >
+              <Link
+                className="flex gap-4 hover:text-newPrimary transition-all duration-200"
+                href=""
+              >
+                <IoLockClosedOutline size={23} />
+                <span>Admin Dashboard</span>
+              </Link>
+            </motion.div>
+          )}
           <motion.div
             whileTap={{ scale: 1, x: 0 }}
             whileHover={{ scale: 1.05, x: 3 }}

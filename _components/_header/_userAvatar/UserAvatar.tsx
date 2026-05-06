@@ -76,7 +76,8 @@ export default function UserAvatar({
               className="md:hidden w-full h-screen absolute inset-0 pt-28 bg-dark-100 -z-10"
             >
               <AvatarMenuMobile
-              //  session={session}
+                role={session.profile.role}
+                //  session={session}
               />
             </motion.div>
 
@@ -89,7 +90,8 @@ export default function UserAvatar({
               className="hidden md:block absolute top-24 md:right-5 lg:right-5 z-50"
             >
               <AvatarMenu
-              // session={session}
+                role={session.profile.role}
+                // session={session}
               />
             </motion.div>
           </>
