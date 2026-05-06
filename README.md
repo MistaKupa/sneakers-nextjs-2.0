@@ -77,20 +77,14 @@ The goal was to practice:
 
 This project includes a simple admin dashboard.
 
-To access it use the following credentials:
-
-Email: admin@admin.com
-Password: pas123456789 (1 to 9)
+To access it by asking me for credentials
 
 Admin routes:
 
-/admin/dashboard
-/admin/orders
-/admin/users
-/admin/products
+/admin/dashboard /admin/orders /admin/users /admin/products
 
-⚠️ Note:  
-Please avoid deleting core products because it may affect order records in the database.  
+⚠️ Note:
+Please avoid deleting core products because it may affect order records in the database.
 For testing you can create or delete test products.
 
 ## 💡 Key Implementations
