@@ -16,6 +16,10 @@ The project started as a Frontend Mentor challenge and gradually evolved into a 
 | ---------------------------------- | ---------------------------------------- |
 | ![Products](./assets/products.png) | ![Product](./assets/product-details.png) |
 
+## 📸 Admin Dashboard Demo
+
+![Admin Demo](./assets/admin-demo.gif)
+
 ## 🎯 Project Background
 
 The project was originally based on a **Frontend Mentor "Product Page" challenge**.  
