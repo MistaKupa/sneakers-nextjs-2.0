@@ -110,6 +110,7 @@ export default function AboutTeamSection() {
                   src={person.photo}
                   alt={`Photo of ${person.name}`}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover shadow rounded-lg"
                 />
               </div>

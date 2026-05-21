@@ -60,6 +60,7 @@ export default function ProductCard({
             src={product.images[0]}
             alt={product.title}
             fill
+            sizes="(max-width: 1024px) 50vw, 80px"
             className="object-cover"
           />
         </div>

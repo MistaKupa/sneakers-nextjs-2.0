@@ -45,6 +45,7 @@ export default function CollectionSection({
                     src={collection.image_url}
                     alt="sneakers"
                     fill
+                    sizes="(max-width: 1280px) 100vw, 33vw"
                     className="rounded-md group-hover:scale-110 transition-all duration-700 object-cover"
                   />
                   <div className="absolute inset-0 flex items-center justify-center text-dark-100 text-3xl font-bold bg-dark-500 bg-opacity-40 lg:bg-opacity-0 lg:text-opacity-0 lg:group-hover:bg-opacity-20 lg:group-hover:text-opacity-100 transition-all duration-500">

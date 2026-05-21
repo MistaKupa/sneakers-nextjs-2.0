@@ -55,11 +55,15 @@ export default function SustainabilitySection() {
       className="relative flex items-center justify-center min-h-screen bg-white overflow-hidden border-t border-newPrimary z-20"
     >
       {/* Background image */}
-      <div ref={sustainBackgroundRef} className="absolute inset-0">
+      <div
+        ref={sustainBackgroundRef}
+        className="absolute inset-0 w-full h-full"
+      >
         <Image
           src="/shoesLanding/Landing_Sustainability.jpg"
-          alt="Sneaker Background"
+          alt="Sneaker on flowers and rocks"
           fill
+          sizes="(max-width: 1280px) 100vw, 1440px"
           className="w-full h-full bg-contain"
         />
       </div>

@@ -11,7 +11,7 @@ export default function AccountLayout({ children }: { children: ReactNode }) {
         <div className="relative w-full h-full">
           <Image
             src="/images/bg-main-desktop-horizontal.png"
-            alt="bg-image"
+            alt="Background purple gradient image"
             fill
             className=""
           />

@@ -48,8 +48,9 @@ export default function AboutBannerSection() {
         <Image
           ref={bannerImageRef}
           src="/aboutUs/ainur-iman-2qQ1YV1RuaE-unsplash.jpg"
-          alt="imagos"
+          alt="About us banner image two pair of sneakers"
           fill
+          sizes="100vw"
           className="object-cover shadow"
         />
 

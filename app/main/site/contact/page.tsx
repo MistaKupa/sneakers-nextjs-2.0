@@ -38,8 +38,9 @@ export default function Contact() {
       <div className="background absolute w-full h-full z-10">
         <Image
           src="/contact/sava-bobov-kQjOclDX_uI-unsplash.jpg"
-          alt="imagos"
+          alt="Stone walls with trees"
           fill
+          sizes="100vw"
           className="object-cover"
         />
       </div>

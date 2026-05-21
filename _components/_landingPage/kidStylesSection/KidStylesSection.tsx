@@ -81,11 +81,13 @@ export default function KidStylesSection({
     >
       <div
         ref={kidStylesBackgroundRef}
-        className="absolute w-full h-full z-10 -top-[100%]"
+        className="absolute w-full h-full z-10 lg:-top-[100%]"
       >
         <Image
           src="/shoesLanding/AdobeStock_1520605313.jpeg"
-          alt="Floating Sneaker Banenr"
+          alt="Floating Sneaker Banner"
+          sizes="100vw"
+          priority
           fill
           className="object-cover"
         />

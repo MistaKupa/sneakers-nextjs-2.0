@@ -67,6 +67,7 @@ export default function BannerSection({
           alt="Floating Sneaker Banner"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
           onLoad={() => ScrollTrigger.refresh()}
         />

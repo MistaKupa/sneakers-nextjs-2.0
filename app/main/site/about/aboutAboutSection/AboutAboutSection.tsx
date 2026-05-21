@@ -162,8 +162,9 @@ export default function AboutAboutSection() {
           >
             <Image
               src="/aboutUs/johnny-briggs-jF_AQH-bBSc-unsplash.jpg"
-              alt="sneakers"
+              alt="Workshop closeup image making sneakers"
               fill
+              sizes="(max-width: 1280px) 100vw, 50vw"
               className="object-cover shadow rounded-lg"
             />
           </div>
@@ -180,8 +181,9 @@ export default function AboutAboutSection() {
           >
             <Image
               src="/aboutUs/toa-heftiba-KQ1n6HzSahY-unsplash.jpg"
-              alt="sneakers"
+              alt="Sneakers with book about our story"
               fill
+              sizes="(max-width: 1280px) 100vw, 50vw"
               className="object-cover shadow rounded-lg"
             />
           </div>

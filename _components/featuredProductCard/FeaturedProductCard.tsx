@@ -32,6 +32,7 @@ function FeaturedProductCard({
             src={images[0]}
             alt="Adifom"
             fill
+            sizes="(max-width: 768px) 100vw, 384px"
             className="rounded-md object-cover"
           />
           <span className="absolute top-2 left-2 uppercase text-dark-100 text-xs font-semibold bg-newPrimary px-2 py-1 rounded-md z-10">
