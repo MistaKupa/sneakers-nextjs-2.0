@@ -37,7 +37,7 @@ export default function Contact() {
     <section className="relative xl:items-end flex w-full min-h-screen xl:h-screen">
       <div className="background absolute w-full h-full z-10">
         <Image
-          src="/shoesLanding/White_Sneakers_Falling_Down.jpg"
+          src="/contact/sava-bobov-kQjOclDX_uI-unsplash.jpg"
           alt="imagos"
           fill
           className="object-cover"
