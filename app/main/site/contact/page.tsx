@@ -17,16 +17,20 @@ gsap.registerPlugin(useGSAP, ScrollSmoother, ScrollTrigger);
 
 export default function Contact() {
   useGSAP(() => {
-    let tl1 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".background",
-        scrub: 2,
-        start: "top top",
-        end: "+=1800 bottom",
-      },
-    });
+    let mm = gsap.matchMedia();
 
-    tl1.to(".background", { scale: 1.15 });
+    mm.add("(min-width: 800px)", () => {
+      let tl1 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".background",
+          scrub: 2,
+          start: "top top",
+          end: "+=1800 bottom",
+        },
+      });
+
+      tl1.to(".background", { scale: 1.15 });
+    });
   });
 
   return (

@@ -21,7 +21,7 @@ export default function SmoothScrollProvider({
       smoother.current = ScrollSmoother.create({
         smooth: 3,
         effects: true,
-        smoothTouch: 0.5,
+        smoothTouch: 0.2,
       });
 
       ScrollTrigger.refresh();

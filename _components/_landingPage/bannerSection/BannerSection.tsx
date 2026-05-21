@@ -25,31 +25,33 @@ export default function BannerSection({
       const bannerContainer = bannerContainerRef.current;
       const bannerContent = bannerContentRef.current;
       const imageContainer = imageContainerRef.current;
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        let tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: imageContainer,
+            scrub: 0.5,
+            pin: true,
+            pinSpacing: false,
+            start: "top top",
+            end: "bottom top",
+            // markers: true,
+          },
+        });
 
-      let tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: imageContainer,
-          scrub: 0.5,
-          pin: true,
-          pinSpacing: false,
-          start: "top top",
-          end: "bottom top",
-          // markers: true,
-        },
+        tl1.fromTo(imageContainer, { scale: 1 }, { scale: 1.15 });
+
+        let tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: bannerContainer,
+            scrub: 0.5,
+            start: "top top",
+            end: "bottom top",
+          },
+        });
+
+        tl2.fromTo(bannerContent, { scale: 1 }, { scale: 0.85 });
       });
-
-      tl1.fromTo(imageContainer, { scale: 1 }, { scale: 1.15 });
-
-      let tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: bannerContainer,
-          scrub: 0.5,
-          start: "top top",
-          end: "bottom top",
-        },
-      });
-
-      tl2.fromTo(bannerContent, { scale: 1 }, { scale: 0.85 });
     },
     { scope: bannerContainerRef },
   );

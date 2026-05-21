@@ -18,24 +18,28 @@ export default function AboutBannerSection() {
     () => {
       const bannerContainer = bannerContainerRef.current;
       const bannerImage = bannerImageRef.current;
-      let tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: bannerContainer,
-          scrub: 2,
-          start: "top top",
-          end: "bottom top",
-          // markers: {
-          //   startColor: "black",
-          //   endColor: "orange",
-          //   fontSize: "22px",
-          //   fontWeight: "bold",
-          //   indent: 150,
-          // },
-        },
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 800px)", () => {
+        let tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: bannerContainer,
+            scrub: 2,
+            start: "top top",
+            end: "bottom top",
+            // markers: {
+            //   startColor: "black",
+            //   endColor: "orange",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 150,
+            // },
+          },
+        });
+        tl1.to(bannerImage, { scale: 1.1 });
       });
-      tl1.to(bannerImage, { scale: 1.1 });
     },
-    { scope: bannerSectionRef }
+    { scope: bannerSectionRef },
   );
 
   return (
@@ -43,14 +47,14 @@ export default function AboutBannerSection() {
       <div ref={bannerContainerRef} className="relative w-full h-3/4 z-0">
         <Image
           ref={bannerImageRef}
-          src="/shoesLanding/White_Sneakers_Falling_Down.jpg"
+          src="/aboutUs/ainur-iman-2qQ1YV1RuaE-unsplash.jpg"
           alt="imagos"
           fill
           className="object-cover shadow"
         />
 
         <div className="w-full max-w-[1440px] h-full mx-auto flex justify-center items-center">
-          <h1 className="absolute text-6xl lg:text-8xl font-semibold">
+          <h1 className="absolute text-6xl lg:text-8xl font-semibold text-dark-100">
             About Us
           </h1>
         </div>

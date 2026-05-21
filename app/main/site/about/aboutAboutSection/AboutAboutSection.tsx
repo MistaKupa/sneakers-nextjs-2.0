@@ -126,7 +126,7 @@ export default function AboutAboutSection() {
       //   .fromTo(imageContainer01, { scale: 0.85, y: 250 }, { scale: 1, y: 0 })
       //   .fromTo(imageContainer01, { scale: 1, y: 0 }, { scale: 0.85, y: -800 });
     },
-    { scope: aboutTextContainerRef }
+    { scope: aboutTextContainerRef },
   );
 
   return (
@@ -158,13 +158,13 @@ export default function AboutAboutSection() {
           </div>
           <div
             ref={imageContainerRef01}
-            className="relative aspect-square w-full col-span-2"
+            className="relative aspect-square w-10/12 col-span-2 place-self-center xl:justify-self-end"
           >
             <Image
-              src="/shoesLanding/White_Sneakers_Falling_Down.jpg"
+              src="/aboutUs/johnny-briggs-jF_AQH-bBSc-unsplash.jpg"
               alt="sneakers"
               fill
-              className="object-cover shadow"
+              className="object-cover shadow rounded-lg"
             />
           </div>
         </div>
@@ -179,10 +179,10 @@ export default function AboutAboutSection() {
             className="relative w-full lg:col-span-2 aspect-square"
           >
             <Image
-              src="/shoesLanding/White_Sneakers_Falling_Down.jpg"
+              src="/aboutUs/toa-heftiba-KQ1n6HzSahY-unsplash.jpg"
               alt="sneakers"
               fill
-              className="object-cover shadow"
+              className="object-cover shadow rounded-lg"
             />
           </div>
 

@@ -16,33 +16,37 @@ export default function SustainabilitySection() {
     () => {
       const sustainBackground = sustainBackgroundRef.current;
 
-      let tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: sustainBackground,
-          start: "-80% top",
-          end: "+=1820 top",
-          scrub: 0.2,
-          pin: true,
-          // markers: true,
-        },
-      });
+      let mm = gsap.matchMedia();
 
-      tl1
-        .fromTo(".sustainHeading", { scale: 0.8 }, { scale: 1 })
-        .fromTo(".sustainHeading", { scale: 1 }, { scale: 0.8 });
+      mm.add("(min-width: 1024px)", () => {
+        let tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: sustainBackground,
+            start: "-80% top",
+            end: "+=1820 top",
+            scrub: 0.2,
+            pin: true,
+            // markers: true,
+          },
+        });
 
-      gsap.to(".masked-text", {
-        backgroundPosition: "50% 100%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: sustainBackground,
-          start: "-80% top",
-          end: "+=1500 top",
-          scrub: true,
-        },
+        tl1
+          .fromTo(".sustainHeading", { scale: 0.8 }, { scale: 1 })
+          .fromTo(".sustainHeading", { scale: 1 }, { scale: 0.8 });
+
+        gsap.to(".masked-text", {
+          backgroundPosition: "50% 100%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sustainBackground,
+            start: "-80% top",
+            end: "+=1500 top",
+            scrub: true,
+          },
+        });
       });
     },
-    { scope: sustainContainerRef }
+    { scope: sustainContainerRef },
   );
 
   return (

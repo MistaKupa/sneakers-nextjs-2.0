@@ -25,48 +25,51 @@ export default function KidStylesSection({
     () => {
       const kidStylesBackground = kidStylesBackgroundRef.current;
       const kidStylesContentContainer = kidStylesContentContainerRef.current;
+      let mm = gsap.matchMedia();
 
-      let tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: kidStylesBackground,
-          pin: true,
-          pinSpacing: false,
-          scrub: 0.2,
-          start: "top top",
-          end: "+=1890 top",
-          // markers: {
-          //   startColor: "blue",
-          //   endColor: "pink",
-          //   fontSize: "22px",
-          //   fontWeight: "bold",
-          //   indent: 20,
-          // },
-        },
+      mm.add("(min-width: 1024px )", () => {
+        let tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: kidStylesBackground,
+            pin: true,
+            pinSpacing: false,
+            scrub: 0.2,
+            start: "top top",
+            end: "+=1890 top",
+            // markers: {
+            //   startColor: "blue",
+            //   endColor: "pink",
+            //   fontSize: "22px",
+            //   fontWeight: "bold",
+            //   indent: 20,
+            // },
+          },
+        });
+
+        tl1.fromTo(kidStylesBackground, { scale: 1 }, { scale: 1.15 });
+
+        let tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: kidStylesContentContainer,
+            scrub: 0.2,
+            start: "-120% top",
+            end: "bottom top",
+            // markers: true,
+          },
+        });
+
+        tl2
+          .fromTo(
+            kidStylesContentContainer,
+            { scale: 0.8, y: 50 },
+            { scale: 1, y: 0 },
+          )
+          .fromTo(
+            kidStylesContentContainer,
+            { scale: 1, y: 0 },
+            { scale: 0.8, y: -50 },
+          );
       });
-
-      tl1.fromTo(kidStylesBackground, { scale: 1 }, { scale: 1.15 });
-
-      let tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: kidStylesContentContainer,
-          scrub: 0.2,
-          start: "-120% top",
-          end: "bottom top",
-          // markers: true,
-        },
-      });
-
-      tl2
-        .fromTo(
-          kidStylesContentContainer,
-          { scale: 0.8, y: 50 },
-          { scale: 1, y: 0 },
-        )
-        .fromTo(
-          kidStylesContentContainer,
-          { scale: 1, y: 0 },
-          { scale: 0.8, y: -50 },
-        );
     },
     { scope: kidStylesContainerRef },
   );

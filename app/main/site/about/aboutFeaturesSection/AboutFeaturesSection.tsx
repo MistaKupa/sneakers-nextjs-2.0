@@ -62,70 +62,23 @@ export default function AboutFeaturesSection() {
         tl1.fromTo(
           featuresBackground,
           { opacity: 0, height: 0 },
-          { opacity: 1, height: 700 }
+          { opacity: 1, height: 700 },
         );
         tl1.fromTo(
           sustainable,
           { opacity: 0, scale: 0 },
-          { opacity: 1, scale: 1 }
+          { opacity: 1, scale: 1 },
         );
         tl1.fromTo(
           comfortable,
           { opacity: 0, scale: 0 },
-          { opacity: 1, scale: 1 }
-        );
-        tl1.fromTo(minimal, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
-      });
-
-      // MOBILE ANIMATION
-      mm.add("(max-width: 799px)", () => {
-        let tl1 = gsap.timeline({
-          scrollTrigger: {
-            trigger: featuresSection,
-            scrub: 3,
-            start: "-30% top",
-            end: "bottom top",
-            // markers: {
-            //   startColor: "green",
-            //   endColor: "orange",
-            //   fontSize: "22px",
-            //   fontWeight: "bold",
-            //   indent: 150,
-            // },
-          },
-        });
-        let tl2 = gsap.timeline({
-          scrollTrigger: {
-            trigger: featuresSection,
-            scrub: 3,
-            pin: true,
-            start: "top top",
-            end: "70% top",
-            // markers: {
-            //   startColor: "black",
-            //   endColor: "black",
-            //   fontSize: "22px",
-            //   fontWeight: "bold",
-            //   indent: 150,
-            // },
-          },
-        });
-        tl1.fromTo(featuresBackground, { opacity: 0 }, { opacity: 1 });
-        tl1.fromTo(
-          sustainable,
-          { opacity: 0, scale: 0 },
-          { opacity: 1, scale: 1 }
-        );
-        tl1.fromTo(
-          comfortable,
-          { opacity: 0, scale: 0 },
-          { opacity: 1, scale: 1 }
+          { opacity: 1, scale: 1 },
         );
         tl1.fromTo(minimal, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1 });
       });
     },
 
-    { scope: featuresSectionContainerRef }
+    { scope: featuresSectionContainerRef },
   );
 
   return (
