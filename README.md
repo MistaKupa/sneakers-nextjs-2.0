@@ -122,14 +122,10 @@ Planned improvements:
 - implement collections page and in navigation (removed for now)
 - error & loading states
 - Stripe webhook integration
-- unit testing
 - performance optimization
 - improved product management
 
 This project is actively maintained and will continue to evolve as I deepen my knowledge of modern web development.
-
-Currently transitioning parts of the project to TypeScript
-as part of my learning process.
 
 ## 👨‍💻 About Me
 
